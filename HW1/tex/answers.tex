@@ -24,7 +24,7 @@
 \bookmarksetup{numbered}
 
 % PDF Setup
-\hypersetup{pdftitle={Homework 1 - Image and Matrix Manipulation}, pdfsubject={Documentation of 1st Homework}, pdfauthor={Stefan Röhrl}, pdfkeywords={Neuroprothetik Exercise}, pdfcreator={LaTeX}, hidelinks}
+\hypersetup{pdftitle={Homework 1}, pdfsubject={Documentation of 1st Homework}, pdfauthor={Stefan Röhrl}, pdfkeywords={Neuroprothetik Exercise}, pdfcreator={LaTeX}, hidelinks}
 
 
 \begin{document}
@@ -60,17 +60,19 @@ Email: stefan.roehrl@tum.de}}
 Die ersten 10000 Datenpunkte, also 100ms sehen folgender maßen aus:
 \begin{figure}[h!]
   	\centering
-    \scalebox{.7}{\input{img/sig.tikz}}
+    \scalebox{.5}{\input{img/sig.tikz}}
     \caption{Generiertes Signal f(t)}
     \label{fig:sig}
 \end{figure}
 \end{enumerate}
 
 \section{Calculate the Spectrum}
-In den Abbildungen \ref{fig:fft1} \ref{fig:fft2} \ref{fig:fft3} sind die Spektren des genierten Signals mit verschiedenen Abtastraten zu sehen. Dargestellt sind nur die positiven Frequenzen. Es ist nicht das ganze Spektrum zu sehen, sondern nur der Bereich in dem interessante Werte $\neq 0$ vorkommen.
+\begin{enumerate}
 
-In Abb. \ref{fig:fft3} wurde das Nyquist-Kriterium zur Abtastung verletzt. Die höchste im Signal vorhandene Frequenz beträgt 9kHz, daher müsste die Abtastrate $\ge 18$kHz sein. Durch die Abtastung mit 10kHz treten Aliasing-Effekte auf und ein verfälschtes Spektrum ist zu sehen (es dürfte kein Peak bei 1kHz vorhanden sein).
+\item In den Abbildungen \ref{fig:fft1} \ref{fig:fft2} \ref{fig:fft3} sind die Spektren des genierten Signals mit verschiedenen Abtastraten zu sehen. Dargestellt sind nur die positiven Frequenzen. Es ist nicht das ganze Spektrum zu sehen, sondern nur der Bereich in dem interessante Werte $\neq 0$ vorkommen.
 
+In Abb. \ref{fig:fft3} wurde das Nyquist-Kriterium zur Abtastung verletzt. Die höchste im Signal vorhandene Frequenz beträgt 9kHz, daher müsste die Abtastrate $\ge 18$kHz sein. Durch die Abtastung mit 10kHz treten Aliasing-Effekte auf und ein verfälschtes Spektrum ist zu sehen (es dürfte kein Peak bei 1kHz vorhanden sein). Um das Signal mit 10kHz ohne Aliasing Abtasten zu können müsste es vorher tiefpassgefiltert werden, sodass keine Frequenzen über 5kHz mehr vorkommen. 
+\end{enumerate}
 \begin{figure}[h!]
   	\centering
     \scalebox{.5}{\input{img/fft1.tikz}}

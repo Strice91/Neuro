@@ -1,7 +1,7 @@
 close all;
 
 %% 1.1
-figure;
+f = figure;
 v = linspace(-5,5,30);
 t = linspace(-5,5,30);
 [t_gird, v_grid] = meshgrid(t,v);
@@ -23,12 +23,16 @@ plot(t,iso2);
 plot(t,iso3);
 plot(t,iso4);
 plot(t,iso5);
+title('Vd/dt = 1 - V - t');
 legend('dV/dt','ISO -2','ISO -1','ISO 0','ISO 1','ISO 2')
 xlabel('t in s');
 ylabel('V in V');
+ylim([-5,5]);
+xlim([-5,5]);
+print(f,'-dpng','../tex/img/fkt1.png') 
 
 %% 1.2
-figure;
+f = figure;
 v = linspace(-5,5,30);
 t = linspace(-5,5,30);
 [t_gird, v_grid] = meshgrid(t,v);
@@ -53,3 +57,8 @@ plot(t,iso5);
 legend('dV/dt','ISO -2','ISO -1','ISO 0','ISO 1','ISO 2')
 xlabel('t in s');
 ylabel('V in V');
+title('Vd/dt = sin(t) - V/1.5');
+ylim([-5,5]);
+xlim([-5,5]);
+
+print(f,'-dpng','../tex/img/fkt2.png')
