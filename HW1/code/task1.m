@@ -12,4 +12,4 @@ xlabel('t/s');
 ylabel('f(t)');
 title('Generated Signal');
 
-%matlab2tikz
+matlab2tikz('../tex/img/sig.tikz')

@@ -14,18 +14,22 @@ F3 = fftSpezial(f3,10000);
 
 figure;
 hold all;
-subplot(3,1,1);
 plot(abs(F1),'b');
 xlabel('Frequenz in Hz');
 ylabel('Amplitude');
-subplot(3,1,2);
+matlab2tikz('../tex/img/fft1.tikz')
+
+figure;
 plot(abs(F2),'r');
 xlabel('Frequenz in Hz');
 ylabel('Amplitude');
-subplot(3,1,3);
+matlab2tikz('../tex/img/fft2.tikz')
+
+figure;
 plot(abs(F3),'g');
 xlabel('Frequenz in Hz');
 ylabel('Amplitude');
+matlab2tikz('../tex/img/fft3.tikz')
 
 
 % 2.1 b)
