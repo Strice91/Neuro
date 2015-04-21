@@ -7,8 +7,8 @@ Rate = 100000;
 
 plot_section = 1:10000;                 % 100ms
 figure;
-plot(t(plot_section),f(plot_section));
-xlabel('t/s');
+plot(t(plot_section)*1000,f(plot_section));
+xlabel('t/ms');
 ylabel('f(t)');
 title('Generated Signal');
 

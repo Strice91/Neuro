@@ -1,0 +1,95 @@
+\documentclass[conference]{IEEEtran}
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{pdfpages}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{listings}
+\usepackage{cite}
+\usepackage{enumerate}
+\usepackage{scientific}
+\usepackage[colorlinks=false]{hyperref}
+\usepackage{bookmark}
+
+\usepackage[]{mcode}	%Matlab Code
+\usepackage{tikz,pgfplots}	%Tikz
+
+% Bookmark Setup
+\bookmarksetup{numbered}
+
+% PDF Setup
+\hypersetup{pdftitle={Homework 1 - Image and Matrix Manipulation}, pdfsubject={Documentation of 1st Homework}, pdfauthor={Stefan Röhrl}, pdfkeywords={Neuroprothetik Exercise}, pdfcreator={LaTeX}, hidelinks}
+
+
+\begin{document}
+%
+% cite all references
+%\nocite{*}
+%
+% paper title
+% can use linebreaks \\ within to get better formatting as desired
+\title{Homework 1\\ Introduction to Matlab / Pyton}
+
+\author{\IEEEauthorblockN{Stefan Röhrl}
+\IEEEauthorblockA{Technische Universität München, Arcisstraße 21, Munich, Germany\\
+Email: stefan.roehrl@tum.de}}
+
+% use for special paper notices
+%\IEEEspecialpapernotice{(Invited Paper)}
+
+% make the title area
+\maketitle
+
+\IEEEpeerreviewmaketitle
+
+\section{Generate a Signal}
+
+\begin{enumerate}
+\item Der Funktionsaufruf erzeugt ein Überlagerte Sinusschwingung aus 3 verschiedenen Frequenzen mit einem Gleichanteil/Offset von 3. Das generierte Signal ist eine Sekunde lang und wurde mit 100kHz Abtastrate generiert.
+
+\begin{lstlisting}
+[f,t] = genSignal([100,600,9000],[3,1,1.5,2],...
+				1,100000);
+\end{lstlisting}
+Die ersten 10000 Datenpunkte, also 100ms sehen folgender maßen aus:
+\begin{figure}[h!]
+  	\centering
+    \scalebox{.7}{\input{img/sig.tikz}}
+    \caption{Generiertes Signal f(t)}
+    \label{fig:sig}
+\end{figure}
+\end{enumerate}
+
+\section{Calculate the Spectrum}
+In den Abbildungen \ref{fig:fft1} \ref{fig:fft2} \ref{fig:fft3} sind die Spektren des genierten Signals mit verschiedenen Abtastraten zu sehen. Dargestellt sind nur die positiven Frequenzen. Es ist nicht das ganze Spektrum zu sehen, sondern nur der Bereich in dem interessante Werte $\neq 0$ vorkommen.
+
+In Abb. \ref{fig:fft3} wurde das Nyquist-Kriterium zur Abtastung verletzt. Die höchste im Signal vorhandene Frequenz beträgt 9kHz, daher müsste die Abtastrate $\ge 18$kHz sein. Durch die Abtastung mit 10kHz treten Aliasing-Effekte auf und ein verfälschtes Spektrum ist zu sehen (es dürfte kein Peak bei 1kHz vorhanden sein).
+
+\begin{figure}[h!]
+  	\centering
+    \scalebox{.5}{\input{img/fft1.tikz}}
+    \caption{Spektrum mit einer Abtastrate von 100kHz}
+    \label{fig:fft1}
+\end{figure}
+\begin{figure}[h!]
+  	\centering
+    \scalebox{.5}{\input{img/fft2.tikz}}
+    \caption{Spektrum mit einer Abtastrate von 20kHz}
+    \label{fig:fft2}
+\end{figure}
+\begin{figure}[h!]
+  	\centering
+    \scalebox{.5}{\input{img/fft3.tikz}}
+    \caption{Spektrum mit einer Abtastrate von 10kHz}
+    \label{fig:fft3}
+\end{figure}
+
+\end{document}
+
+
