@@ -1,4 +1,6 @@
-function [V,t] = forwardEuler(V0,t0,dt,steps,fkt)
+function [V,t] = forwardEuler(V0,t0,dt,dur,fkt)
+
+steps = ceil(dur/dt);
 
 t = t0:dt:t0+steps*dt;
 V = zeros(1,steps+1);

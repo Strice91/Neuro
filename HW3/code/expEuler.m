@@ -1,5 +1,6 @@
-function [ V,t ] = expEuler(V0,t0,dt,steps,A,B)
+function [ V,t ] = expEuler(V0,t0,dt,dur,A,B)
 
+steps = ceil(dur/dt);
 t = t0:dt:t0+steps*dt;
 V = zeros(1,steps+1);
 V(1) = V0; 

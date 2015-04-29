@@ -48,49 +48,65 @@ Email: stefan.roehrl@tum.de}}
 
 \IEEEpeerreviewmaketitle
 
-\section{Generate a Signal}
+\section{Implementations in Matlab}
 
 \begin{enumerate}
-\item Der Funktionsaufruf erzeugt ein Überlagerte Sinusschwingung aus 3 verschiedenen Frequenzen mit einem Gleichanteil/Offset von 3. Das generierte Signal ist eine Sekunde lang und wurde mit 100kHz Abtastrate generiert.
+\item Bla
 
 \begin{lstlisting}
 [f,t] = genSignal([100,600,9000],[3,1,1.5,2],...
 				1,100000);
 \end{lstlisting}
-Die ersten 10000 Datenpunkte, also 100ms sehen folgender maßen aus:
+Bla
 \begin{figure}[h!]
   	\centering
-    \scalebox{.5}{\input{img/sig.tikz}}
+    \scalebox{.5}{\input{img/forwardEuler.tikz}}
     \caption{Generiertes Signal f(t)}
-    \label{fig:sig}
+    \label{fig:forwardEuler}
+\end{figure}
+\begin{figure}[h!]
+  	\centering
+    \scalebox{.5}{\input{img/heun.tikz}}
+    \caption{Generiertes Signal f(t)}
+    \label{fig:heun}
+\end{figure}
+\begin{figure}[h!]
+  	\centering
+    \scalebox{.5}{\input{img/expEuler.tikz}}
+    \caption{Generiertes Signal f(t)}
+    \label{fig:expEuler}
 \end{figure}
 \end{enumerate}
 
-\section{Calculate the Spectrum}
+\section{Solve Functions}
 \begin{enumerate}
-
-\item In den Abbildungen \ref{fig:fft1} \ref{fig:fft2} \ref{fig:fft3} sind die Spektren des genierten Signals mit verschiedenen Abtastraten zu sehen. Dargestellt sind nur die positiven Frequenzen. Es ist nicht das ganze Spektrum zu sehen, sondern nur der Bereich in dem interessante Werte $\neq 0$ vorkommen.
-
-In Abb. \ref{fig:fft3} wurde das Nyquist-Kriterium zur Abtastung verletzt. Die höchste im Signal vorhandene Frequenz beträgt 9kHz, daher müsste die Abtastrate $\ge 18$kHz sein. Durch die Abtastung mit 10kHz treten Aliasing-Effekte auf und ein verfälschtes Spektrum ist zu sehen (es dürfte kein Peak bei 1kHz vorhanden sein). Um das Signal mit 10kHz ohne Aliasing Abtasten zu können müsste es vorher tiefpassgefiltert werden, sodass keine Frequenzen über 5kHz mehr vorkommen. 
-\end{enumerate}
+\item bla
 \begin{figure}[h!]
   	\centering
-    \scalebox{.5}{\input{img/fft1.tikz}}
+    \scalebox{.5}{\input{img/neuron1.tikz}}
     \caption{Spektrum mit einer Abtastrate von 100kHz}
-    \label{fig:fft1}
+    \label{fig:neuron1}
 \end{figure}
 \begin{figure}[h!]
   	\centering
-    \scalebox{.5}{\input{img/fft2.tikz}}
+    \scalebox{.5}{\input{img/neuron2.tikz}}
     \caption{Spektrum mit einer Abtastrate von 20kHz}
-    \label{fig:fft2}
+    \label{fig:neuron2}
 \end{figure}
 \begin{figure}[h!]
   	\centering
-    \scalebox{.5}{\input{img/fft3.tikz}}
+    \scalebox{.5}{\input{img/neuron3.tikz}}
     \caption{Spektrum mit einer Abtastrate von 10kHz}
-    \label{fig:fft3}
+    \label{fig:neuron3}
 \end{figure}
+\begin{figure}[h!]
+  	\centering
+    \scalebox{.5}{\input{img/neuron4.tikz}}
+    \caption{Spektrum mit einer Abtastrate von 10kHz}
+    \label{fig:neuron4}
+\end{figure}
+\end{enumerate}
+\section{The Leaky Integrate and Fire Neuron}
 
 \end{document}
 
