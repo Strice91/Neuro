@@ -44,9 +44,9 @@ dv = fkt2(v_grid,t_gird) ./ lng;
 quiver(t, v, dt, dv);
 iso1 = 1.5*(sin(t)+2);       % isokline -2
 iso2 = 1.5*(sin(t)+1);       % isokline -1
-iso3 = 1.5*(sin(t));       % isokline 0
-iso4 = 1.5*(sin(t)-1);          % isokline 1
-iso5 = 1.5*(sin(t)-2);      % isokline 2
+iso3 = 1.5*(sin(t));         % isokline 0
+iso4 = 1.5*(sin(t)-1);       % isokline 1
+iso5 = 1.5*(sin(t)-2);       % isokline 2
 
 hold all;
 plot(t,iso1);

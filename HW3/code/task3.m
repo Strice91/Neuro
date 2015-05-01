@@ -3,7 +3,7 @@ close all;
 V0 = -60e-3;
 t0 = 0;
 dt = 25e-6;
-steps = 2000; % fÃ¼r 50 ms
+steps = 2000; % für 50 ms
 Vthr = ones(2001,1) * (-20e-3);
 %%
 I = @(t) 10e-6;
