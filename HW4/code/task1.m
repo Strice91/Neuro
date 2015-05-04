@@ -1,3 +1,5 @@
+close all;
+
 am = @(V) (2.5 - 0.1*V) ./ (exp(2.5 - 0.1*V) - 1);
 an = @(V) (0.1 - 0.01*V) ./ (exp(1 - 0.1*V) - 1 );
 ah = @(V) 0.07 * exp(-V/20);
@@ -8,7 +10,7 @@ bh = @(V) 1 ./ (exp(3-0.1*V) + 1);
 
 tau = @(a,b,k) 1 ./((a + b)*k);
 x_steady = @(a,b) a ./ (a+b);
-k = @(T) 3 ^ (T-6.3)/10;
+k = @(T) 3 ^ ((T-6.3)/10);
 
 V = (-100:100);
 
@@ -17,8 +19,6 @@ T = 6.3;
 tm = tau(am(V),bm(V),k(T));
 tn = tau(an(V),bn(V),k(T));
 th = tau(ah(V),bh(V),k(T));
-
-close all;
 
 figure;
 hold all;
