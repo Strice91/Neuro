@@ -24,7 +24,7 @@
 \bookmarksetup{numbered}
 
 % PDF Setup
-\hypersetup{pdftitle={Homework 1}, pdfsubject={Documentation of 1st Homework}, pdfauthor={Stefan Röhrl}, pdfkeywords={Neuroprothetik Exercise}, pdfcreator={LaTeX}, hidelinks}
+\hypersetup{pdftitle={Homework 4}, pdfsubject={Documentation of 4th Homework}, pdfauthor={Stefan Röhrl}, pdfkeywords={Neuroprothetik Exercise}, pdfcreator={LaTeX}, hidelinks}
 
 
 \begin{document}
@@ -34,7 +34,7 @@
 %
 % paper title
 % can use linebreaks \\ within to get better formatting as desired
-\title{Homework 1\\ Introduction to Matlab / Pyton}
+\title{Homework 4\\ Hodgkin \& Huxley Model}
 
 \author{\IEEEauthorblockN{Stefan Röhrl}
 \IEEEauthorblockA{Technische Universität München, Arcisstraße 21, Munich, Germany\\
@@ -48,87 +48,26 @@ Email: stefan.roehrl@tum.de}}
 
 \IEEEpeerreviewmaketitle
 
-\section{Implementations in Matlab}
-Die Verfahren wurden alle einzeln in separaten Matlab Funktionen implementiert und können mit einem function-handle $(fkt)$ aufgerufen werden, um eine höhere Flexibilität zu bieten. (vgl. code/ [expEuler.m, forwardEuler.m, heun.m]). Die Kernbestandteile der Funktionen sind nachfolgend aufgelistet
-
-\begin{lstlisting}
-	%forwardEuler 	
-	V(k+1) = V(k) + dt*fkt(V(k),t(k));
-	
-	%expEuler		
-	V(k+1) = V(k) * exp(A(t(k))*dt) -...
-	(B(V(k),t(k)) / A(t(k))) *...
-	(1-exp(A(t(k))*dt));
-	
-	%heun			
-	A = fkt(V(k),t(k));
-    V_temp = V(k) + A*dt;
-    B = fkt(V_temp,t(k+1));
-    V(k+1) = V(k) + (A + B)/2*dt;
-\end{lstlisting}
-
-\section{Solve Functions}
-Die drei verschiedenen Verfahren zur Lösung von DGLn wurden im folgenden mit der DGL \eqref{DGL} getestet.
+\section{Time constants and steady state values}
+Wie in der Vorlesung gezeigt wurde gelten für die Gating Variablen folgende Differentialgleichung mit $x \in \{m,n,h\}$
 \begin{equation}
-\frac{dV}{dt} = 1 - V - t
-\label{DGL}
+	\dot{x} = -(\alpha_x + \beta_x) \cdot \left(x - \frac{\alpha_x}{\alpha_x + \beta_x}\right)
+	\label{StandardDGL}
 \end{equation}
+Möchte man Gleichung \eqref{StandardDGL} nun auf Form aus der Angabe bringen, ergeben sich für $\tau_x$ und $x_{\infty}$ folgende Gleichungen:
+\begin{align}
+	\tau_x & = \frac{1}{\alpha_x + \beta_x}\\
+	x_{\infty} & = \frac{\alpha_x}{\alpha_x + \beta_x}
+\end{align}
 
-\begin{figure}[h!]
-  	\centering
-    \scalebox{.6}{\input{img/forwardEuler.tikz}}
-    \caption{Forward Euler mit versch. Schrittgrößen dt}
-    \label{fig:forwardEuler}
-\end{figure}
-Beim Forward Euler ist bei großen Schrittweiten ein starkes überschießen zu beobachten (vgl. Abb. \ref{fig:forwardEuler}), was durch die große Steigung im Startpunkt verursacht wird. Bei kleineren Schrittweiten erreicht man eine bessere Näherung.
 
-\begin{figure}[h!]
-  	\centering
-    \scalebox{.6}{\input{img/heun.tikz}}
-    \caption{Verf. v. Heun mit versch. Schrittgrößen dt}
-    \label{fig:heun}
-\end{figure}
-Beim Verfahren von Heun (vgl. Abb. \ref{fig:heun}) ist genau das Gegenteil der Fall. Hier führt eine größe Schrittweite dazu, dass das die Näherung unterhalb der gesuchten Lösung liegt.
 
-\begin{figure}[h!]
-  	\centering
-    \scalebox{.6}{\input{img/expEuler.tikz}}
-    \caption{Exponential Euler mit versch. Schrittgröße dt}
-    \label{fig:expEuler}
-\end{figure}
-Fehler???
+\section{Hodgkin \& Huxley Neuron Model}
+\begin{enumerate}
+\item bla
+\item bla
+\end{enumerate}
 
-Generell ist bei der Wahl von kleinen Schrittweiten eine bessere Annäherung des Solvers an die tatsächliche Lösung der DGL zu erwarten. Das heißt die numerische Lösung stimmt besser mit der analytischen Lösung überein, denn je nach der Ordnung des Verfahrens sinkt der Fehler mit der Verkleinerung der Schrittweite umso mehr. Jedoch ist abzuwägen wie genau die Lösung für die Anwendung sein muss. Denn die Wahl einer kleinen Schrittweite bring eine immer längere Rechenzeit mit sich. Somit ist eine generelle Wahl einer sehr kleinen Schrittweite nicht zu empfehlen.
-
-\section{The Leaky Integrate and Fire Neuron}
-Der eingeprägte Strom wird durch das Neuron auf integriert. Das heißt die Spannung steigt immer weiter an bis sie den Threshold Wert $V_{thr}$ erreicht hat. Bei diesem Wert wird die Zelle zu einem Spike angeregt und die komplette Energie fast instantan abgegeben. Das Potential erhöht sich auch $V_{spike}$ und fällt sogleich auf Ruhepotential $V_{rest}$ ab. (vgl. Abb. \ref{fig:neuron1})\\
-\begin{figure}[h!]
-  	\centering
-    \scalebox{.5}{\input{img/neuron1.tikz}}
-    \caption{Potentialverlauf mit $I_{input} = 10\mu A$}
-    \label{fig:neuron1}
-\end{figure}
-Im zweiten Szenario mit einem höheren (doppelt so hohem) eingeprägten Strom von $20\mu A$ wird $V_{thr}$ doppelt so schnell erreicht. Daher feuert das Neuron auch mit der doppelten Frequenz. (vgl. Abb. \ref{fig:neuron2})\\
-\begin{figure}[h!]
-  	\centering
-    \scalebox{.5}{\input{img/neuron2.tikz}}
-    \caption{Potentialverlauf mit $I_{input} = 20\mu A$}
-    \label{fig:neuron2}
-\end{figure}
-Die Aufladung des Neurons erfolgt durch den nicht mehr konstanten Strom nun unregelmäßiger. Daher erreicht das Potential nicht mehr so schnell $V_{thr}$, weswegen des Neuron mit einer geringer Frequenz feuert, als mit konstantem $10\mu A$ Strom. (vgl. Abb. \ref{fig:neuron3})\\
-\begin{figure}[h!]
-  	\centering
-    \scalebox{.5}{\input{img/neuron3.tikz}}
-    \caption{Potentialverlauf mit $I_{input} = 10\mu A \cdot |sin(2\pi 50 t)|$}
-    \label{fig:neuron3}
-\end{figure}
-Durch die Amplitude von $30\mu A$ ist der Strom in der richtigen Phasenlage $(sin \rightarrow 1)$ so groß, dass das Neuron nach dem feuern und einem Abfall auf $V_{rest}$ sehr schnell wieder die Threshold-Spannung erreicht und somit erneut feuern kann. Somit kommt es zu gehäuftem Feuern (4 Spikes) unterbrochen von kurzen Pausen. (vgl. Abb. \ref{fig:neuron4})
-\begin{figure}[h!]
-  	\centering
-    \scalebox{.5}{\input{img/neuron4.tikz}}
-    \caption{Potentialverlauf mit $I_{input} = 30\mu A \cdot |sin(2\pi 50 t)|$}
-    \label{fig:neuron4}
-\end{figure}
 
 
 \end{document}
