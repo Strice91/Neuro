@@ -23,7 +23,7 @@ xlabel={t in s},
 every outer y axis line/.append style={black},
 every y tick label/.append style={font=\color{black}},
 ymin=-5,
-ymax=15,
+ymax=6,
 ylabel={V in V},
 title={Exponential Euler},
 legend style={legend cell align=left,align=left,draw=black}

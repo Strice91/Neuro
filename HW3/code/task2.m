@@ -45,7 +45,7 @@ for i = 1:4
    plot(t,V,style{i});
 end
 xlim([-5,6]);
-ylim([-5,15]);
+ylim([-5,6]);
 legend('dt = 1s','dt = 0.5s','dt = 0.1','dt = 0.012')
 xlabel('t in s');
 ylabel('V in V');

@@ -24,7 +24,7 @@
 \bookmarksetup{numbered}
 
 % PDF Setup
-\hypersetup{pdftitle={Homework 1}, pdfsubject={Documentation of 1st Homework}, pdfauthor={Stefan Röhrl}, pdfkeywords={Neuroprothetik Exercise}, pdfcreator={LaTeX}, hidelinks}
+\hypersetup{pdftitle={Homework 3}, pdfsubject={Documentation of 1st Homework}, pdfauthor={Stefan Röhrl}, pdfkeywords={Neuroprothetik Exercise}, pdfcreator={LaTeX}, hidelinks}
 
 
 \begin{document}
@@ -34,7 +34,7 @@
 %
 % paper title
 % can use linebreaks \\ within to get better formatting as desired
-\title{Homework 1\\ Introduction to Matlab / Pyton}
+\title{Homework 3\\ Mathematical Basics 2}
 
 \author{\IEEEauthorblockN{Stefan Röhrl}
 \IEEEauthorblockA{Technische Universität München, Arcisstraße 21, Munich, Germany\\
@@ -49,7 +49,7 @@ Email: stefan.roehrl@tum.de}}
 \IEEEpeerreviewmaketitle
 
 \section{Implementations in Matlab}
-Die Verfahren wurden alle einzeln in separaten Matlab Funktionen implementiert und können mit einem function-handle $(fkt)$ aufgerufen werden, um eine höhere Flexibilität zu bieten. (vgl. code/ [expEuler.m, forwardEuler.m, heun.m]). Die Kernbestandteile der Funktionen sind nachfolgend aufgelistet
+Die Verfahren wurden alle einzeln in separaten Matlab Funktionen implementiert und können mit einem function-handle $(fkt)$ aufgerufen werden, um eine höhere Flexibilität zu bieten. (vgl. code/ [expEuler.m, forwardEuler.m, heun.m]). Die Kernbestandteile der Funktionen sind nachfolgend aufgelistet:
 
 \begin{lstlisting}
 	%forwardEuler 	
@@ -68,7 +68,7 @@ Die Verfahren wurden alle einzeln in separaten Matlab Funktionen implementiert u
 \end{lstlisting}
 
 \section{Solve Functions}
-Die drei verschiedenen Verfahren zur Lösung von DGLn wurden im folgenden mit der DGL \eqref{DGL} getestet.
+Die drei verschiedenen Verfahren zur Lösung von DGLn werden im folgenden mit der DGL \eqref{DGL} getestet.
 \begin{equation}
 \frac{dV}{dt} = 1 - V - t
 \label{DGL}
@@ -88,7 +88,7 @@ Beim Forward Euler ist bei großen Schrittweiten ein starkes überschießen zu b
     \caption{Verf. v. Heun mit versch. Schrittgrößen dt}
     \label{fig:heun}
 \end{figure}
-Beim Verfahren von Heun (vgl. Abb. \ref{fig:heun}) ist genau das Gegenteil der Fall. Hier führt eine größe Schrittweite dazu, dass das die Näherung unterhalb der gesuchten Lösung liegt.
+Beim Verfahren von Heun (vgl. Abb. \ref{fig:heun}) ist genau das Gegenteil der Fall. Hier führt eine größere Schrittweite dazu, dass das die Näherung zunächst unterhalb der gesuchten Lösung liegt. Hier liefern auch die kleineren Schrittweiten exaktere Lösungen.
 
 \begin{figure}[h!]
   	\centering
@@ -96,12 +96,12 @@ Beim Verfahren von Heun (vgl. Abb. \ref{fig:heun}) ist genau das Gegenteil der F
     \caption{Exponential Euler mit versch. Schrittgröße dt}
     \label{fig:expEuler}
 \end{figure}
-Fehler???
+Der exponentielle Euler (vgl. Abb. \ref{fig:expEuler}) ist besonders gut für diese steife DGL geeignet. Dies sieht man daran, dass die Lösungen trotz variabler Schrittweite sehr nahe beieinander liegen. D.h. der exponentielle Euler liefert auch bei größeren Schrittweiten (bei steifen DGL) exaktere Ergebnisse, als die anderen Solver. Der einzige Makel ist, dass sich die Lösungen für unterschiedliche Schrittgrößen nicht auf die selbe Lösung einpendeln, wie es bei den anderen Solvern der Fall ist.\\
 
-Generell ist bei der Wahl von kleinen Schrittweiten eine bessere Annäherung des Solvers an die tatsächliche Lösung der DGL zu erwarten. Das heißt die numerische Lösung stimmt besser mit der analytischen Lösung überein, denn je nach der Ordnung des Verfahrens sinkt der Fehler mit der Verkleinerung der Schrittweite umso mehr. Jedoch ist abzuwägen wie genau die Lösung für die Anwendung sein muss. Denn die Wahl einer kleinen Schrittweite bring eine immer längere Rechenzeit mit sich. Somit ist eine generelle Wahl einer sehr kleinen Schrittweite nicht zu empfehlen.
+Generell ist bei der Wahl von kleinen Schrittweiten eine bessere Annäherung des Solvers an die tatsächliche Lösung der DGL zu erwarten. Das heißt die numerische Lösung stimmt besser mit der analytischen Lösung überein, denn je nach der Ordnung des Verfahrens sinkt der Fehler mit der Verkleinerung der Schrittweite umso mehr. Jedoch ist abzuwägen, wie genau die Lösung für die Anwendung sein muss. Denn die Wahl einer kleinen Schrittweite bring eine immer längere Rechenzeit mit sich. Somit ist eine generelle Wahl einer sehr kleinen Schrittweite nicht zu empfehlen.\\
 
 \section{The Leaky Integrate and Fire Neuron}
-Der eingeprägte Strom wird durch das Neuron auf integriert. Das heißt die Spannung steigt immer weiter an bis sie den Threshold Wert $V_{thr}$ erreicht hat. Bei diesem Wert wird die Zelle zu einem Spike angeregt und die komplette Energie fast instantan abgegeben. Das Potential erhöht sich auch $V_{spike}$ und fällt sogleich auf Ruhepotential $V_{rest}$ ab. (vgl. Abb. \ref{fig:neuron1})\\
+Der eingeprägte Strom wird durch das Neuron auf integriert. Das heißt die Spannung steigt immer weiter an, bis sie den Threshold Wert $V_{thr}$ erreicht hat. Bei diesem Wert wird die Zelle zu einem Spike angeregt und die komplette Energie fast instantan abgegeben. Das Potential erhöht sich auch $V_{spike}$ und fällt sogleich auf Ruhepotential $V_{rest}$ ab. (vgl. Abb. \ref{fig:neuron1})\\
 \begin{figure}[h!]
   	\centering
     \scalebox{.5}{\input{img/neuron1.tikz}}
@@ -115,7 +115,7 @@ Im zweiten Szenario mit einem höheren (doppelt so hohem) eingeprägten Strom vo
     \caption{Potentialverlauf mit $I_{input} = 20\mu A$}
     \label{fig:neuron2}
 \end{figure}
-Die Aufladung des Neurons erfolgt durch den nicht mehr konstanten Strom nun unregelmäßiger. Daher erreicht das Potential nicht mehr so schnell $V_{thr}$, weswegen des Neuron mit einer geringer Frequenz feuert, als mit konstantem $10\mu A$ Strom. (vgl. Abb. \ref{fig:neuron3})\\
+Die Aufladung des Neurons erfolgt durch den nicht mehr konstanten Strom nun unregelmäßiger. Daher erreicht das Potential nicht mehr so schnell $V_{thr}$, weswegen das Neuron mit einer geringer Frequenz feuert, als mit konstantem $10\mu A$ Strom. (vgl. Abb. \ref{fig:neuron3})\\
 \begin{figure}[h!]
   	\centering
     \scalebox{.5}{\input{img/neuron3.tikz}}
