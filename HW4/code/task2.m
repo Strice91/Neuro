@@ -20,6 +20,15 @@ iStimulus = pulseGen(dur,dt,pulseWidth,pulseDelay,amps);
 [V,t,i_ion,gate] = hhNeuron(V0,t0,dt,steps,iStimulus,T);
 
 figure;
+plot(t,iStimulus);
+title('Stimulus');
+xlabel('t in ms');
+ylabel('i_{stimulus} in \muA/cm^2')
+box on;
+ylim([0,6]);
+matlab2tikz('../tex/img/Stiumulus6.tikz')
+
+figure;
 plot(t,V);
 title('Membranpotential bei 6.3^\circ C');
 xlabel('t in ms');
@@ -72,6 +81,15 @@ amps = [2,4,8,16,32];
 iStimulus = pulseGen(dur,dt,pulseWidth,pulseDelay,amps);
 
 [V,t,i_ion,gate] = hhNeuron(V0,t0,dt,steps,iStimulus,T);
+
+figure;
+plot(t,iStimulus);
+title('Stimulus');
+xlabel('t in ms');
+ylabel('i_{stimulus} in \muA/cm^2')
+box on;
+ylim([0,33]);
+matlab2tikz('../tex/img/Stiumulus28.tikz')
 
 figure;
 plot(t,V);

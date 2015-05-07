@@ -29,6 +29,8 @@ legend('\tau_m','\tau_n','\tau_h')
 xlabel('V in mV')
 ylabel('\tau_x in ms')
 title('Zeitkonstanten bei 6.3^\circ C')
+box on;
+matlab2tikz('../tex/img/Zeitkonstanten6.tikz')
 
 T = 28;
 
@@ -45,6 +47,8 @@ legend('\tau_m','\tau_n','\tau_h')
 xlabel('V in mV')
 ylabel('\tau_x in ms')
 title('Zeitkonstanten bei 28^\circ C')
+box on;
+matlab2tikz('../tex/img/Zeitkonstanten28.tikz')
 
 m_steady = x_steady(am(V),bm(V));
 n_steady = x_steady(an(V),bn(V));
@@ -59,3 +63,5 @@ legend('m_\infty','n_\infty','h_\infty')
 xlabel('V in mV')
 ylabel('x_\infty')
 title('Gating Variablen bei 6,3^\circ C und 28^\circ C')
+box on;
+matlab2tikz('../tex/img/Gating6-28.tikz')

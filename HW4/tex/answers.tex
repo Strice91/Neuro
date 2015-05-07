@@ -20,6 +20,10 @@
 \usepackage[]{mcode}	%Matlab Code
 \usepackage{tikz,pgfplots}	%Tikz
 
+\usepgfplotslibrary{external} 
+\tikzexternalize
+\tikzsetexternalprefix{ext/}
+
 % Bookmark Setup
 \bookmarksetup{numbered}
 
@@ -52,14 +56,34 @@ Email: stefan.roehrl@tum.de}}
 Wie in der Vorlesung gezeigt wurde gelten für die Gating Variablen folgende Differentialgleichung mit $x \in \{m,n,h\}$
 \begin{equation}
 	\dot{x} = -(\alpha_x + \beta_x) \cdot \left(x - \frac{\alpha_x}{\alpha_x + \beta_x}\right)
-	\label{StandardDGL}
+	\label{eq:Standard}
 \end{equation}
-Möchte man Gleichung \eqref{StandardDGL} nun auf Form aus der Angabe bringen, ergeben sich für $\tau_x$ und $x_{\infty}$ folgende Gleichungen:
+Möchte man Gleichung \eqref{eq:Standard} nun auf die Form aus der Angabe bringen, ergeben sich für $\tau_x$ und $x_{\infty}$ folgende Gleichungen:
 \begin{align}
 	\tau_x & = \frac{1}{\alpha_x + \beta_x}\\
 	x_{\infty} & = \frac{\alpha_x}{\alpha_x + \beta_x}
 \end{align}
 
+\begin{figure}[h!]
+  	\centering
+    \scalebox{.6}{\input{img/Zeitkonstanten6.tikz}}
+    \caption{Zeitkonstanten $\tau_\infty$ über $V$ bei $6.3^\circ C$}
+    \label{fig:Zeitkonstanten6}
+\end{figure}
+
+\begin{figure}[h!]
+  	\centering
+    \scalebox{.6}{\input{img/Zeitkonstanten28.tikz}}
+    \caption{Zeitkonstanten $\tau_x$ über $V$ bei $28^\circ C$}
+    \label{fig:Zeitkonstanten28}
+\end{figure}
+
+\begin{figure}[h!]
+  	\centering
+    \scalebox{.6}{\input{img/Gating6-28.tikz}}
+    \caption{Steady State Gating Variablen $x_\infty$ bei $6.3^\circ C$ und $28^\circ C$}
+    \label{fig:Gating1}
+\end{figure}
 
 
 \section{Hodgkin \& Huxley Neuron Model}
@@ -68,7 +92,75 @@ Möchte man Gleichung \eqref{StandardDGL} nun auf Form aus der Angabe bringen, e
 \item bla
 \end{enumerate}
 
+\begin{figure}[h!]
+  	\centering
+    \scalebox{.6}{\input{img/Stiumulus6.tikz}}
+    \caption{Stimulusstromdichte bei $6.3^\circ C$}
+    \label{fig:Stiumulus6}
+\end{figure}
 
+\begin{figure}[h!]
+  	\centering
+    \scalebox{.6}{\input{img/Membranpotential6.tikz}}
+    \caption{Membranpotential bei $6.3^\circ C$}
+    \label{fig:Membranpotential6}
+\end{figure}
+
+\begin{figure}[h!]
+  	\centering
+    \scalebox{.6}{\input{img/Gating6.tikz}}
+    \caption{Gating Konstanten bei $6.3^\circ C$}
+    \label{fig:Gating6}
+\end{figure}
+
+\begin{figure}[h!]
+  	\centering
+    \scalebox{.6}{\input{img/Stromdichten6.tikz}}
+    \caption{Stromdichten bei $6.3^\circ C$}
+    \label{fig:Stromdichten6}
+\end{figure}
+
+\begin{figure}[h!]
+  	\centering
+    \scalebox{.6}{\input{img/Phasenportrait6.tikz}}
+    \caption{Phasenportrait bei $6.3^\circ C$}
+    \label{fig:Phasenportrait6}
+\end{figure}
+
+\begin{figure}[h!]
+  	\centering
+    \scalebox{.6}{\input{img/Stiumulus28.tikz}}
+    \caption{Stimulusstromdichte bei $28^\circ C$}
+    \label{fig:Stiumulus28}
+\end{figure}
+
+\begin{figure}[h!]
+  	\centering
+    \scalebox{.6}{\input{img/Membranpotential28.tikz}}
+    \caption{Membranpotential bei $28^\circ C$}
+    \label{fig:Membranpotential28}
+\end{figure}
+
+\begin{figure}[h!]
+  	\centering
+    \scalebox{.6}{\input{img/Gating28.tikz}}
+    \caption{Gating Konstanten bei $28^\circ C$}
+    \label{fig:Gating28}
+\end{figure}
+
+\begin{figure}[h!]
+  	\centering
+    \scalebox{.6}{\input{img/Stromdichten28.tikz}}
+    \caption{Stromdichten bei $28^\circ C$}
+    \label{fig:Stromdichten28}
+\end{figure}
+
+\begin{figure}[h!]
+  	\centering
+    \scalebox{.6}{\input{img/Phasenportrait28.tikz}}
+    \caption{Phasenportrait bei $28^\circ C$}
+    \label{fig:Phasenportrait28}
+\end{figure}
 
 \end{document}
 
