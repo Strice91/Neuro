@@ -61,6 +61,15 @@ matlab2tikz('../tex/img/Stromdichten6.tikz')
 
 figure;
 hold all;
+plot(t,i_ion(1,:)+i_ion(2,:)+i_ion(3,:),'r');
+title('Summenstrom bei 6.3^\circ C');
+xlabel('t in ms');
+ylabel('i in \mu A / cm^2');
+box on;
+matlab2tikz('../tex/img/Summenstrom6.tikz')
+
+figure;
+hold all;
 plot(V,i_ion(1,:));
 plot(V,i_ion(2,:));
 plot(V,i_ion(3,:));
@@ -113,6 +122,18 @@ matlab2tikz('../tex/img/Gating28.tikz')
 
 figure;
 hold all;
+plot(t(5001:8000),gate(1,5001:8000));
+plot(t(5001:8000),gate(2,5001:8000));
+plot(t(5001:8000),gate(3,5001:8000));
+legend('m','n','h');
+title('Gating Variablen bei 28^\circ C');
+xlabel('t in ms');
+ylabel('WSK');
+box on;
+matlab2tikz('../tex/img/GatingClose28.tikz')
+
+figure;
+hold all;
 plot(t,i_ion(1,:));
 plot(t,i_ion(2,:));
 legend('i_{Na}','i_K');
@@ -121,6 +142,26 @@ xlabel('t in ms');
 ylabel('i in \mu A / cm^2');
 box on;
 matlab2tikz('../tex/img/Stromdichten28.tikz')
+
+figure;
+hold all;
+plot(t(5001:8000),i_ion(1,5001:8000));
+plot(t(5001:8000),i_ion(2,5001:8000));
+legend('i_{Na}','i_K');
+title('Stromdichten bei 28^\circ C');
+xlabel('t in ms');
+ylabel('i in \mu A / cm^2');
+box on;
+matlab2tikz('../tex/img/StromdichtenClose28.tikz')
+
+figure;
+hold all;
+plot(t(5001:8000),i_ion(1,5001:8000)+i_ion(2,5001:8000)+i_ion(3,5001:8000),'r');
+title('Summenstrom bei 28^\circ C');
+xlabel('t in ms');
+ylabel('i in \mu A / cm^2');
+box on;
+matlab2tikz('../tex/img/Summenstrom28.tikz')
 
 figure;
 hold all;

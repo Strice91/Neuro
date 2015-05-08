@@ -63,6 +63,13 @@ Möchte man Gleichung \eqref{eq:Standard} nun auf die Form aus der Angabe bringe
 	\tau_x & = \frac{1}{\alpha_x + \beta_x}\\
 	x_{\infty} & = \frac{\alpha_x}{\alpha_x + \beta_x}
 \end{align}
+Berücksichtigt man die Temperaturabhängigkeit muss noch folgender Korrekturfaktor $k$ eingeführt werden:
+\begin{align}
+	k & = 3^{0.1 (T-6.3)}\\
+	\tau_x & = \frac{1}{(\alpha_x + \beta_x) \cdot k}\\
+	x_{\infty} & = \frac{\alpha_x}{\alpha_x + \beta_x} \cdot \frac{k}{k} = \frac{\alpha_x}{\alpha_x + \beta_x}
+\end{align}
+Hieraus lässt sich schon ableiten, dass die Zeitkonstanten eine Temperaturabhängigkeit aufweisen. Die zeigt sich auch in den Grafiken \ref{fig:Zeitkonstanten6} und \ref{fig:Zeitkonstanten28}. Der Verlauf der Zeitkonstanten über dem Membranpotential ändert sich zwar nicht, jedoch nehmen die absoluten Werte ab, was heißt, dass bei höheren Temperaturen die Reaktionen/Vorgänge wesentlich schneller ablaufen. Zusätzlich sind die Zeitkonstanten abhängig vom Membranpotential $V$.
 
 \begin{figure}[h!]
   	\centering
@@ -71,6 +78,7 @@ Möchte man Gleichung \eqref{eq:Standard} nun auf die Form aus der Angabe bringe
     \label{fig:Zeitkonstanten6}
 \end{figure}
 
+Der Verlauf der Zeitkonstanten zeigt, das die Vorgänge im negativen Bereich schneller ablaufen, als im positiven und nahe 0V. Generell ist zu erwähnen, dass die Zeitkonstante $\tau_m$ die kleinste ist gefolgt von $\tau_n$. Die größte und somit langsamste ist $tau_h$.
 \begin{figure}[h!]
   	\centering
     \scalebox{.6}{\input{img/Zeitkonstanten28.tikz}}
@@ -78,20 +86,18 @@ Möchte man Gleichung \eqref{eq:Standard} nun auf die Form aus der Angabe bringe
     \label{fig:Zeitkonstanten28}
 \end{figure}
 
+
+Die Steady State Werte der Gating Variablen sind temperaturabhängig. Das bedeutet, dass das Ruhepotential bei unterschiedlichen Temperaturen das Selbe ist. Daher sind die Gating Variablen für die verschiedenen Temperaturen nur einmal in Grafik \ref{fig:Gating1} abgebildet. Der Wert der Gating Variablen hängt also nur vom Membranpotential selbst ab.
 \begin{figure}[h!]
   	\centering
     \scalebox{.6}{\input{img/Gating6-28.tikz}}
     \caption{Steady State Gating Variablen $x_\infty$ bei $6.3^\circ C$ und $28^\circ C$}
     \label{fig:Gating1}
 \end{figure}
-
+Im Betrachtet man die Gating Variablen und die Zeitkonstanten gemeinsam kann man daraus das Verhalten eines Neurons nach dem Hodgkin \& Huxley Modell erklären. Zuerst sind alle Ionenkanäle geschlossen und die Zelle befindet sich im Ruhepotential nahe -70mV. Die Gating Variablen m und n sind nahe 0, was heißt die Leitfähigkeit der Kanäle ist gering. Erhöht sich nun das Membranpotential durch einen Stimulus kann sich - durch die kleine Zeitkonstante $\tau_m$ - zuerst der schnelle $Na^+$ Kanal öffnen. Das Membranpotential der Zelle erhöht sich ab einem gewissen Threshold (ab -20mV ist erst ein signifikanter Anstieg von $m_\infty$ zu sehen) durch den Zufluss der positiven Ionen schlagartig (Spike). Mit der nächst größeren Zeitkonstanten $\tau_n$ folgt auch der $K^+$ Kanal und zusätzlich wird dann der $Na^+$ Kanal durch die Variable $h$ wieder deaktiviert und die Zelle kann auf das Ruhepotential zurückkehren. Das Verhalten der Gating Variablen kann dabei aus den Steady State Werte (vgl. Abb. \ref{fig:Gating1}) abgelesen werden. Dies sind die Werte wohin m,n,h bei einem gegebenen Membranpotenital streben. Ist beispielsweise das Membranpotential hoch (Aktionspotential), strebt die Variable h gegen 0. Wie schnell dies geschieht, beschreibt die Zeitkonstante $\tau_h$.
 
 \section{Hodgkin \& Huxley Neuron Model}
-\begin{enumerate}
-\item bla
-\item bla
-\end{enumerate}
-
+Im Abb. \ref{fig:Stiumulus6} ist der Stimulus abgebildet, der bei $6.3^\circ C$ angewendet werden soll.
 \begin{figure}[h!]
   	\centering
     \scalebox{.6}{\input{img/Stiumulus6.tikz}}
@@ -118,6 +124,13 @@ Möchte man Gleichung \eqref{eq:Standard} nun auf die Form aus der Angabe bringe
     \scalebox{.6}{\input{img/Stromdichten6.tikz}}
     \caption{Stromdichten bei $6.3^\circ C$}
     \label{fig:Stromdichten6}
+\end{figure}
+
+\begin{figure}[h!]
+  	\centering
+    \scalebox{.6}{\input{img/Summenstrom6.tikz}}
+    \caption{Summenstrom $i_{Na}+i_K+i_L$ bei $6.3^\circ C$}
+    \label{fig:Summenstrom6}
 \end{figure}
 
 \begin{figure}[h!]
@@ -150,9 +163,30 @@ Möchte man Gleichung \eqref{eq:Standard} nun auf die Form aus der Angabe bringe
 
 \begin{figure}[h!]
   	\centering
+    \scalebox{.6}{\input{img/GatingClose28.tikz}}
+    \caption{Gating Konstanten bei $28^\circ C$}
+    \label{fig:GatingClose28}
+\end{figure}
+
+\begin{figure}[h!]
+  	\centering
     \scalebox{.6}{\input{img/Stromdichten28.tikz}}
     \caption{Stromdichten bei $28^\circ C$}
     \label{fig:Stromdichten28}
+\end{figure}
+
+\begin{figure}[h!]
+  	\centering
+    \scalebox{.6}{\input{img/StromdichtenClose28.tikz}}
+    \caption{Stromdichten bei $28^\circ C$}
+    \label{fig:StromdichtenClose28}
+\end{figure}
+
+\begin{figure}[h!]
+  	\centering
+    \scalebox{.6}{\input{img/Summenstrom28.tikz}}
+    \caption{Summenstrom $i_{Na}+i_K+i_L$ bei $28^\circ C$}
+    \label{fig:Summenstrom28}
 \end{figure}
 
 \begin{figure}[h!]
