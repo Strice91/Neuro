@@ -97,49 +97,13 @@ Die Steady State Werte der Gating Variablen sind temperaturabhängig. Das bedeut
 Im Betrachtet man die Gating Variablen und die Zeitkonstanten gemeinsam kann man daraus das Verhalten eines Neurons nach dem Hodgkin \& Huxley Modell erklären. Zuerst sind alle Ionenkanäle geschlossen und die Zelle befindet sich im Ruhepotential nahe -70mV. Die Gating Variablen m und n sind nahe 0, was heißt die Leitfähigkeit der Kanäle ist gering. Erhöht sich nun das Membranpotential durch einen Stimulus kann sich - durch die kleine Zeitkonstante $\tau_m$ - zuerst der schnelle $Na^+$ Kanal öffnen. Das Membranpotential der Zelle erhöht sich ab einem gewissen Threshold (ab -20mV ist erst ein signifikanter Anstieg von $m_\infty$ zu sehen) durch den Zufluss der positiven Ionen schlagartig (Spike). Mit der nächst größeren Zeitkonstanten $\tau_n$ folgt auch der $K^+$ Kanal und zusätzlich wird dann der $Na^+$ Kanal durch die Variable $h$ wieder deaktiviert und die Zelle kann auf das Ruhepotential zurückkehren. Das Verhalten der Gating Variablen kann dabei aus den Steady State Werte (vgl. Abb. \ref{fig:Gating1}) abgelesen werden. Dies sind die Werte wohin m,n,h bei einem gegebenen Membranpotenital streben. Ist beispielsweise das Membranpotential hoch (Aktionspotential), strebt die Variable h gegen 0. Wie schnell dies geschieht, beschreibt die Zeitkonstante $\tau_h$.
 
 \section{Hodgkin \& Huxley Neuron Model}
-Im Abb. \ref{fig:Stiumulus6} ist der Stimulus abgebildet, der bei $6.3^\circ C$ angewendet werden soll.
+Im Abb. \ref{fig:Stiumulus6} ist der Stimulus abgebildet, der bei $6.3^\circ C$ angewendet werden soll. Dagegen ist in Abb. \ref{fig:Stiumulus28} der Stimulus bei $28^\circ C$ dargestellt.
 \begin{figure}[h!]
   	\centering
     \scalebox{.6}{\input{img/Stiumulus6.tikz}}
     \caption{Stimulusstromdichte bei $6.3^\circ C$}
     \label{fig:Stiumulus6}
 \end{figure}
-
-\begin{figure}[h!]
-  	\centering
-    \scalebox{.6}{\input{img/Membranpotential6.tikz}}
-    \caption{Membranpotential bei $6.3^\circ C$}
-    \label{fig:Membranpotential6}
-\end{figure}
-
-\begin{figure}[h!]
-  	\centering
-    \scalebox{.6}{\input{img/Gating6.tikz}}
-    \caption{Gating Konstanten bei $6.3^\circ C$}
-    \label{fig:Gating6}
-\end{figure}
-
-\begin{figure}[h!]
-  	\centering
-    \scalebox{.6}{\input{img/Stromdichten6.tikz}}
-    \caption{Stromdichten bei $6.3^\circ C$}
-    \label{fig:Stromdichten6}
-\end{figure}
-
-\begin{figure}[h!]
-  	\centering
-    \scalebox{.6}{\input{img/Summenstrom6.tikz}}
-    \caption{Summenstrom $i_{Na}+i_K+i_L$ bei $6.3^\circ C$}
-    \label{fig:Summenstrom6}
-\end{figure}
-
-\begin{figure}[h!]
-  	\centering
-    \scalebox{.6}{\input{img/Phasenportrait6.tikz}}
-    \caption{Phasenportrait bei $6.3^\circ C$}
-    \label{fig:Phasenportrait6}
-\end{figure}
-
 \begin{figure}[h!]
   	\centering
     \scalebox{.6}{\input{img/Stiumulus28.tikz}}
@@ -147,6 +111,14 @@ Im Abb. \ref{fig:Stiumulus6} ist der Stimulus abgebildet, der bei $6.3^\circ C$ 
     \label{fig:Stiumulus28}
 \end{figure}
 
+\begin{itemize}
+\item Der Hauptunterschied zwischen den Ergebnissen $6.3^\circ C$ und $28^\circ C$ ist, dass bei der niedrigeren Temperatur und den kleineren Strömen 3 mal ein Aktionspotential beim auftreten eines Pulses ausgelöst wird (vgl. Abb. \ref{fig:Membranpotential6}). Im anderen Fall wird nur bei den höchsten zwei Strömen ein Aktionspotential ausgelöst, dafür können sie gehäuft auftreten (vgl. Abb. \ref{fig:Membranpotential28}). Bei $28^\circ C$ und den Stromdichten $2\frac{\mu A}{cm^2}$, $4\frac{\mu A}{cm^2}$ und $8\frac{\mu A}{cm^2}$ erhöht sich das Membranpotential nur leicht, jedoch wird kein Aktionspotential ausgelöst. Im Falle T = $6.3^\circ C$ wird schon ab $3\frac{\mu A}{cm^2}$ ein Aktionspotential ausgelöst.
+\begin{figure}[h!]
+  	\centering
+    \scalebox{.6}{\input{img/Membranpotential6.tikz}}
+    \caption{Membranpotential bei $6.3^\circ C$}
+    \label{fig:Membranpotential6}
+\end{figure}
 \begin{figure}[h!]
   	\centering
     \scalebox{.6}{\input{img/Membranpotential28.tikz}}
@@ -154,6 +126,15 @@ Im Abb. \ref{fig:Stiumulus6} ist der Stimulus abgebildet, der bei $6.3^\circ C$ 
     \label{fig:Membranpotential28}
 \end{figure}
 
+
+
+\item Die Generierung eines Aktionspotentials verläuft folgendermaßen: Die Anregung der Dendriten wird durch einen Stimulusstrom simuliert. Dieser führt zu einer leichten Erhöhung des Membranpotentials. Wird ein gewisser Wert überschritten verschiebt sich der Steady-State Wert der Gating Variable m $\rightarrow$ 1 (vgl. Abb. \ref{fig:Gating1}). Durch die schnelle Zeitkonstante $\tau_m$ wird dieser Vorgang noch Beschleunigt. Die Gating Variable m schießt gegen 1 (vgl. Abb. \ref{fig:Gating6} und \ref{fig:Gating28}). Somit öffnet sich der $Na^+$-Ionenkanal als erstes und der $Na^+$ Strom $i_{Na}$ wird schnell größer. (vgl. Abb. \ref{fig:Stromdichten6} und \ref{fig:Stromdichten28}). Dies hat zur Folge, dass das Membranpotential wesentlich höher wird und sogar ins positive umschlägt (Spike). Während dieser Erhöhung passieren zwei Dinge. Zum einen wird der $Na^+$-Kanal durch die Gating Variable h wieder geschlossen (h$\rightarrow$0 vlg. Abb. \ref{fig:Gating6} und \ref{fig:Gating28}) und der $K^+$ Kanal mit der zweit schnellsten Zeitkonstante $\tau_n$ wird aktiv (n$\rightarrow$1). Das zuerst der Natriumstrom und dann der Kaliumstrom auftritt und der beide eine gegensätzliche Wirkung haben haben kann man gut in Abb. \ref{fig:Summenstrom6} und \ref{fig:Summenstrom28} erkennen. Der $Na^+$ Strom ist sehr schnell und hat einen großen Ausschlag. Der $K^+$ Strom hat keine so große Amplitude wirkt jedoch wesentlich länger. Somit wird die Wirkung des $Na^+$ Stromes durch den $K^+$ und Leak-Strom wieder neutralisiert und die Zelle verbleibt nicht im Aktionspotential sondern kehrt zum Ruhepotential zurück. 
+\begin{figure}[h!]
+  	\centering
+    \scalebox{.6}{\input{img/Gating6.tikz}}
+    \caption{Gating Konstanten bei $6.3^\circ C$}
+    \label{fig:Gating6}
+\end{figure}
 \begin{figure}[h!]
   	\centering
     \scalebox{.6}{\input{img/Gating28.tikz}}
@@ -163,11 +144,10 @@ Im Abb. \ref{fig:Stiumulus6} ist der Stimulus abgebildet, der bei $6.3^\circ C$ 
 
 \begin{figure}[h!]
   	\centering
-    \scalebox{.6}{\input{img/GatingClose28.tikz}}
-    \caption{Gating Konstanten bei $28^\circ C$}
-    \label{fig:GatingClose28}
+    \scalebox{.6}{\input{img/Stromdichten6.tikz}}
+    \caption{Stromdichten bei $6.3^\circ C$}
+    \label{fig:Stromdichten6}
 \end{figure}
-
 \begin{figure}[h!]
   	\centering
     \scalebox{.6}{\input{img/Stromdichten28.tikz}}
@@ -177,11 +157,10 @@ Im Abb. \ref{fig:Stiumulus6} ist der Stimulus abgebildet, der bei $6.3^\circ C$ 
 
 \begin{figure}[h!]
   	\centering
-    \scalebox{.6}{\input{img/StromdichtenClose28.tikz}}
-    \caption{Stromdichten bei $28^\circ C$}
-    \label{fig:StromdichtenClose28}
+    \scalebox{.6}{\input{img/Summenstrom6.tikz}}
+    \caption{Summenstrom $i_{Na}+i_K+i_L$ bei $6.3^\circ C$}
+    \label{fig:Summenstrom6}
 \end{figure}
-
 \begin{figure}[h!]
   	\centering
     \scalebox{.6}{\input{img/Summenstrom28.tikz}}
@@ -189,12 +168,43 @@ Im Abb. \ref{fig:Stiumulus6} ist der Stimulus abgebildet, der bei $6.3^\circ C$ 
     \label{fig:Summenstrom28}
 \end{figure}
 
+
+
+\item Die aufeinanderfolgenden Aktionspotentiale nehmen ab, da
+\begin{figure}[h!]
+  	\centering
+    \scalebox{.6}{\input{img/GatingClose28.tikz}}
+    \caption{Gating Konstanten bei $28^\circ C$}
+    \label{fig:GatingClose28}
+\end{figure}
+\begin{figure}[h!]
+  	\centering
+    \scalebox{.6}{\input{img/StromdichtenClose28.tikz}}
+    \caption{Stromdichten bei $28^\circ C$}
+    \label{fig:StromdichtenClose28}
+\end{figure}
+
+
+
+\item Das Phasenportrait ist das Resultat der DGL für die Membranspannung nach dem HH Modell. Für eine bestimmte Spannung können sich die Ströme $i_{Na}$, $i_K$ und $i_L$ nur in eine bestimmte Richtung entwickeln. Wird die Spannung V richtig verändert müssten die Strome einer bestimmten Trajektorie folgen und können nicht direkt in den Ruhepunkt zurück laufen. Im $6.3^\circ C$ Fall wenn der Stimulusstrom groß genug ist, laufen die Ströme fast identische Bahnen ab. Je größer der Stimulus, desto weiter werden die Ströme ausgelenkt. Jedoch kehren sie nach einem Umlauf gleich wieder in den stabilen Ruhezustand zurück (vgl. Abb. \ref{fig:Phasenportrait6}). Würde man den Stimulusstrom konstant lassen würden sich die Ströme immer weiter auf diesen Bahnen bewegen was einer stabilen Grenzschwingung entspricht. Das Neuron würde immer weiter feuern.
+\begin{figure}[h!]
+  	\centering
+    \scalebox{.6}{\input{img/Phasenportrait6.tikz}}
+    \caption{Phasenportrait bei $6.3^\circ C$}
+    \label{fig:Phasenportrait6}
+\end{figure}
+Im Fall T = $28^\circ C$ müssen die Ströme bei Auslenkung wieder bestimmten Trajektorien folgen. Hier gehören jedoch mehrere "Schleifen" zu einem Stimulus. Die Erregung ist so groß und die Veränderung der Ströme durch die hohe Temperatur so schnell, dass die Ströme erst nach mehreren Runden wieder in die Ruheposition gelangen können, bis der Stimulus-Puls wieder abgeschaltet ist. 
 \begin{figure}[h!]
   	\centering
     \scalebox{.6}{\input{img/Phasenportrait28.tikz}}
     \caption{Phasenportrait bei $28^\circ C$}
     \label{fig:Phasenportrait28}
 \end{figure}
+
+
+
+\item Das HH Modell ist eine bessere Annäherung an die Natur, als das LIF Modell. Die Spikes werden im HH von den DGLn selbst ausgelöst, wohingegen beim LIF Modell manuell nachgeholfen werden muss. Beide eignen sich um Feuerraten zu simulieren, jedoch liefert das HH Modell auch noch die Variation der Spike-Höhen was beim LIF Modell nicht möglich ist. Wenn es um die Realitätstreue der Modelle geht ist das HH Modell vorzuziehen, möchte man jedoch eine schnelle Simulation mit wesentlich weniger Rechenaufwand haben kann man auf das LIF Modell zurückgreifen.
+\end{itemize}
 
 \end{document}
 
