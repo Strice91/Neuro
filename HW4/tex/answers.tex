@@ -69,7 +69,7 @@ Berücksichtigt man die Temperaturabhängigkeit muss noch folgender Korrekturfak
 	\tau_x & = \frac{1}{(\alpha_x + \beta_x) \cdot k}\\
 	x_{\infty} & = \frac{\alpha_x}{\alpha_x + \beta_x} \cdot \frac{k}{k} = \frac{\alpha_x}{\alpha_x + \beta_x}
 \end{align}
-Hieraus lässt sich schon ableiten, dass die Zeitkonstanten eine Temperaturabhängigkeit aufweisen. Die zeigt sich auch in den Grafiken \ref{fig:Zeitkonstanten6} und \ref{fig:Zeitkonstanten28}. Der Verlauf der Zeitkonstanten über dem Membranpotential ändert sich zwar nicht, jedoch nehmen die absoluten Werte ab, was heißt, dass bei höheren Temperaturen die Reaktionen/Vorgänge wesentlich schneller ablaufen. Zusätzlich sind die Zeitkonstanten abhängig vom Membranpotential $V$.
+Hieraus lässt sich schon ableiten, dass die Zeitkonstanten eine Temperaturabhängigkeit aufweisen. Diese zeigt sich auch in den Grafiken \ref{fig:Zeitkonstanten6} und \ref{fig:Zeitkonstanten28}. Der Verlauf der Zeitkonstanten über dem Membranpotential ändert sich zwar nicht, jedoch nehmen die absoluten Werte ab, was heißt, dass bei höheren Temperaturen die Reaktionen/Vorgänge wesentlich schneller ablaufen. Zusätzlich sind die Zeitkonstanten abhängig von der Membranspannung $V$.
 
 \begin{figure}[h!]
   	\centering
@@ -87,14 +87,14 @@ Der Verlauf der Zeitkonstanten zeigt, das die Vorgänge im negativen Bereich sch
 \end{figure}
 
 
-Die Steady State Werte der Gating Variablen sind temperaturabhängig. Das bedeutet, dass das Ruhepotential bei unterschiedlichen Temperaturen das Selbe ist. Daher sind die Gating Variablen für die verschiedenen Temperaturen nur einmal in Grafik \ref{fig:Gating1} abgebildet. Der Wert der Gating Variablen hängt also nur vom Membranpotential selbst ab.
+Die Steady State Werte der Gating Variablen sind temperaturabhängig. Das bedeutet, dass das Ruhepotential bei unterschiedlichen Temperaturen das Selbe ist. Daher sind die Gating Variablen für die verschiedenen Temperaturen nur einmal in Grafik \ref{fig:Gating1} abgebildet. Der Wert der Gating Variablen hängt also nur von der Membranspannung selbst ab.
 \begin{figure}[h!]
   	\centering
     \scalebox{.6}{\input{img/Gating6-28.tikz}}
     \caption{Steady State Gating Variablen $x_\infty$ bei $6.3^\circ C$ und $28^\circ C$}
     \label{fig:Gating1}
 \end{figure}
-Im Betrachtet man die Gating Variablen und die Zeitkonstanten gemeinsam kann man daraus das Verhalten eines Neurons nach dem Hodgkin \& Huxley Modell erklären. Zuerst sind alle Ionenkanäle geschlossen und die Zelle befindet sich im Ruhepotential nahe -70mV. Die Gating Variablen m und n sind nahe 0, was heißt die Leitfähigkeit der Kanäle ist gering. Erhöht sich nun das Membranpotential durch einen Stimulus kann sich - durch die kleine Zeitkonstante $\tau_m$ - zuerst der schnelle $Na^+$ Kanal öffnen. Das Membranpotential der Zelle erhöht sich ab einem gewissen Threshold (ab -20mV ist erst ein signifikanter Anstieg von $m_\infty$ zu sehen) durch den Zufluss der positiven Ionen schlagartig (Spike). Mit der nächst größeren Zeitkonstanten $\tau_n$ folgt auch der $K^+$ Kanal und zusätzlich wird dann der $Na^+$ Kanal durch die Variable $h$ wieder deaktiviert und die Zelle kann auf das Ruhepotential zurückkehren. Das Verhalten der Gating Variablen kann dabei aus den Steady State Werte (vgl. Abb. \ref{fig:Gating1}) abgelesen werden. Dies sind die Werte wohin m,n,h bei einem gegebenen Membranpotenital streben. Ist beispielsweise das Membranpotential hoch (Aktionspotential), strebt die Variable h gegen 0. Wie schnell dies geschieht, beschreibt die Zeitkonstante $\tau_h$.
+Im Betrachtet man die Gating Variablen und die Zeitkonstanten gemeinsam, kann man daraus das Verhalten eines Neurons nach dem Hodgkin \& Huxley Modell erklären. Zuerst sind alle Ionenkanäle geschlossen und die Zelle befindet sich im Ruhepotential nahe -70mV. Die Gating Variablen m und n sind nahe 0, was heißt, die Leitfähigkeit der Kanäle ist gering. Erhöht sich nun das Membranpotential durch einen Stimulus, kann sich - durch die kleine Zeitkonstante $\tau_m$ - zuerst der schnelle $Na^+$ Kanal öffnen. Das Membranpotential der Zelle erhöht sich ab einem gewissen Threshold (ab -20mV ist erst ein signifikanter Anstieg von $m_\infty$ zu sehen) durch den Zufluss der positiven Ionen schlagartig (Spike). Mit der nächst größeren Zeitkonstanten $\tau_n$ folgt auch der $K^+$ Kanal wobei zusätzlich der $Na^+$ Kanal durch die Variable $h$ wieder deaktiviert wird. Die Zelle kann dann auf das Ruhepotential zurückkehren. Das Verhalten der Gating Variablen kann dabei aus den Steady State Werten $x_\infty$ (vgl. Abb. \ref{fig:Gating1}) abgelesen werden. Dies sind die Werte wohin m,n,h bei einem gegebenen Membranpotenital streben. Ist beispielsweise das Membranpotential hoch (Aktionspotential), strebt die Variable h gegen 0. Wie schnell dies geschieht, beschreibt in diesem Fall die Zeitkonstante $\tau_h$.
 
 \section{Hodgkin \& Huxley Neuron Model}
 Im Abb. \ref{fig:Stiumulus6} ist der Stimulus abgebildet, der bei $6.3^\circ C$ angewendet werden soll. Dagegen ist in Abb. \ref{fig:Stiumulus28} der Stimulus bei $28^\circ C$ dargestellt.
@@ -170,7 +170,7 @@ Im Abb. \ref{fig:Stiumulus6} ist der Stimulus abgebildet, der bei $6.3^\circ C$ 
 
 
 
-\item Die aufeinanderfolgenden Aktionspotentiale nehmen ab, da durch die schnelle Folge ein Großteil der Kaliumkanäle noch nicht wieder geschlossen ist. Diese hemmen die Erhöhung der Membranspannung. Dies ist daran zu erkennen, dass die Wahrscheinlichkeit, dass ein Kaliumkanal offen ist nicht wie im Ruhezustand bei 30\% ist, sondern nur bis minimal 50\% absinkt.
+\item Die aufeinanderfolgenden Aktionspotentiale nehmen ab, da durch die schnelle Folge ein Großteil der Kaliumkanäle noch nicht wieder geschlossen ist. Diese hemmen die Erhöhung der Membranspannung. Dies ist daran zu erkennen, dass die Wahrscheinlichkeit, dass ein Kaliumkanal offen ist nicht wie im Ruhezustand bei 30\% ist, sondern während der aufeinanderfolgenden Spikes nur bis minimal 50\% absinkt (vgl. Add. \ref{fig:GatingClose28}). Auch sind bei einem wiederholten Aktionspotential durch die Variable h noch nicht wieder alle Natriumkanäle wieder freigegeben (absolute Refraktärzeit). Zusätzlich könnte durch den Kaliumstrom stark negative Membranpotential eine Rolle spielen, jedoch denke ich, dass diese relative Refraktärzeit nur eine Verzögerung zwischen den Aktionspotentialen verursacht, nicht jedoch die absolute Höhe beeinflusst.
 \begin{figure}[h!]
   	\centering
     \scalebox{.6}{\input{img/GatingClose28.tikz}}
@@ -186,7 +186,7 @@ Im Abb. \ref{fig:Stiumulus6} ist der Stimulus abgebildet, der bei $6.3^\circ C$ 
 
 
 
-\item Das Phasenportrait ist das Resultat der DGL für die Membranspannung nach dem HH Modell. Für eine bestimmte Spannung können sich die Ströme $i_{Na}$, $i_K$ und $i_L$ nur in eine bestimmte Richtung entwickeln. Wird die Spannung V richtig verändert müssten die Strome einer bestimmten Trajektorie folgen und können nicht direkt in den Ruhepunkt zurück laufen. Im $6.3^\circ C$ Fall wenn der Stimulusstrom groß genug ist, laufen die Ströme fast identische Bahnen ab. Je größer der Stimulus, desto weiter werden die Ströme ausgelenkt. Jedoch kehren sie nach einem Umlauf gleich wieder in den stabilen Ruhezustand zurück (vgl. Abb. \ref{fig:Phasenportrait6}). Würde man den Stimulusstrom konstant lassen würden sich die Ströme immer weiter auf diesen Bahnen bewegen was einer stabilen Grenzschwingung entspricht. Das Neuron würde immer weiter feuern.
+\item Das Phasenportrait ist das Resultat der DGL für die Membranspannung nach dem HH Modell. Für eine bestimmte Spannung können sich die Ströme $i_{Na}$, $i_K$ und $i_L$ nur in eine bestimmte Richtung entwickeln. Wird die Spannung V richtig verändert müssten die Strome einer bestimmten Trajektorie folgen und können nicht direkt in den Ruhepunkt zurück laufen. Im $6.3^\circ C$ Fall wenn der Stimulusstrom groß genug ist, laufen die Ströme fast identische Bahnen ab. Je größer der Stimulus, desto weiter werden die Ströme ausgelenkt. Jedoch kehren sie nach einem Umlauf gleich wieder in den stabilen Ruhezustand zurück (vgl. Abb. \ref{fig:Phasenportrait6}). Würde man den Stimulusstrom konstant lassen würden sich die Ströme immer weiter auf diesen Bahnen bewegen, was einer stabilen Grenzschwingung entspricht. Das Neuron würde immer weiter feuern.\\
 \begin{figure}[h!]
   	\centering
     \scalebox{.6}{\input{img/Phasenportrait6.tikz}}
@@ -203,7 +203,7 @@ Im Fall T = $28^\circ C$ müssen die Ströme bei Auslenkung wieder bestimmten Tr
 
 
 
-\item Das HH Modell ist eine bessere Annäherung an die Natur, als das LIF Modell. Die Spikes werden im HH von den DGLn selbst ausgelöst, wohingegen beim LIF Modell manuell nachgeholfen werden muss. Beide eignen sich um Feuerraten zu simulieren, jedoch liefert das HH Modell auch noch die Variation der Spike-Höhen was beim LIF Modell nicht möglich ist. Wenn es um die Realitätstreue der Modelle geht ist das HH Modell vorzuziehen, möchte man jedoch eine schnelle Simulation mit wesentlich weniger Rechenaufwand haben kann man auf das LIF Modell zurückgreifen.
+\item Das HH Modell ist eine bessere Annäherung an die Natur, als das LIF Modell. Die Spikes werden im HH von den DGLn selbst ausgelöst, wohingegen beim LIF Modell manuell nachgeholfen werden muss. Beide eignen sich um Feuerraten zu simulieren, jedoch liefert das HH Modell auch noch die Variation der Spike-Höhen was beim LIF Modell nicht möglich ist. Wenn es um die Realitätstreue der Modelle geht, ist das HH Modell vorzuziehen. Möchte man jedoch eine schnelle Simulation mit wesentlich weniger Rechenaufwand haben, kann man auf das LIF Modell zurückgreifen.
 \end{itemize}
 
 \end{document}
