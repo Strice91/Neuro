@@ -22,7 +22,7 @@ every outer y axis line/.append style={black},
 every y tick label/.append style={font=\color{black}},
 ymin=0,
 ymax=1,
-ylabel={WSK},
+ylabel={Wahrscheinlichkeit},
 title={$\text{Gating Variablen bei 28}^\circ\text{ C}$},
 legend style={legend cell align=left,align=left,draw=black}
 ]
