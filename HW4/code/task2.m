@@ -44,7 +44,7 @@ plot(t,gate(3,:));
 legend('m','n','h');
 title('Gating Variablen bei 6.3^\circ C');
 xlabel('t in ms');
-ylabel('WSK');
+ylabel('Wahrscheinlichkeit');
 box on;
 matlab2tikz('../tex/img/Gating6.tikz')
 
@@ -116,7 +116,7 @@ plot(t,gate(3,:));
 legend('m','n','h');
 title('Gating Variablen bei 28^\circ C');
 xlabel('t in ms');
-ylabel('WSK');
+ylabel('Wahrscheinlichkeit');
 box on;
 matlab2tikz('../tex/img/Gating28.tikz')
 
@@ -128,7 +128,7 @@ plot(t(5001:8000),gate(3,5001:8000));
 legend('m','n','h');
 title('Gating Variablen bei 28^\circ C');
 xlabel('t in ms');
-ylabel('WSK');
+ylabel('Wahrscheinlichkeit');
 box on;
 matlab2tikz('../tex/img/GatingClose28.tikz')
 
