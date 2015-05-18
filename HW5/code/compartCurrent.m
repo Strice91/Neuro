@@ -1,4 +1,4 @@
-function [i_ion,gate] = hh_current(V,dt,last_gate,T)
+function [i_ion,gate] = compartCurrent(V,dt,last_gate,T)
 
 k = 3 ^ ((T-6.3)/10);
 

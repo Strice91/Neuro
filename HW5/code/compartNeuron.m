@@ -1,4 +1,4 @@
-function [V,t,i_ion,gate] = hhNeuron(V0,t0,dt,steps,iStimulus,T)
+function [V,t,i_ion,gate] = compartNeuron(V0,t0,dt,steps,iStimulus,T)
 
 t = t0:dt:t0+steps*dt;
 V = zeros(1,steps+1);
