@@ -32,7 +32,6 @@ for k = 1:steps
     % Berechnen Membranspannung
     B = V(:,k) + dt/c * (- sum(i_ion(:,k,:),3) + iStimulus(:,k));
     A = (eye(comparts) - dt/(c * Ra) * C);
-    
     V(:,k+1) = A\B;
 end
 
