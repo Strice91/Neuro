@@ -24,7 +24,7 @@ every outer y axis line/.append style={black},
 every y tick label/.append style={font=\color{black}},
 ymin=-0.05,
 ymax=0.3,
-ylabel={$\text{Activationfunction in V/}\mu\text{m}^\text{2}$},
+ylabel={$\text{Activationfunction in V/ }\mu\text{m}^\text{2}$},
 title={Activation with I = -1mA}
 ]
 \addplot [color=blue,solid,forget plot]
