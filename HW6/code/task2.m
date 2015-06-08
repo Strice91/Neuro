@@ -37,6 +37,8 @@ ylabel('Compartment NR.');
 xlabel('t in ms');
 zlabel('V in mV');
 set(gca, 'XTick', 1:500:4001, 'XTickLabel', 0:12.5:100);
+c = colorbar;
+ylabel(c, 'V in mV');
 %print(f,'-dpng','../tex/img/mono_neg_025_2.png')
 
 %% 2)
@@ -63,6 +65,8 @@ ylabel('Compartment NR.');
 xlabel('t in ms');
 zlabel('V in mV');
 set(gca, 'XTick', 1:500:4001, 'XTickLabel', 0:12.5:100);
+c = colorbar;
+ylabel(c, 'V in mV');
 %print(f,'-dpng','../tex/img/mono_neg_1_2.png')
 
 %% 3)
@@ -89,6 +93,8 @@ ylabel('Compartment NR.');
 xlabel('t in ms');
 zlabel('V in mV');
 set(gca, 'XTick', 1:500:4001, 'XTickLabel', 0:12.5:100);
+c = colorbar;
+ylabel(c, 'V in mV');
 %print(f,'-dpng','../tex/img/bi_05_2.png')
 
 %% 4)
@@ -115,6 +121,8 @@ ylabel('Compartment NR.');
 xlabel('t in ms');
 zlabel('V in mV');
 set(gca, 'XTick', 1:500:4001, 'XTickLabel', 0:12.5:100);
+c = colorbar;
+ylabel(c, 'V in mV');
 %print(f,'-dpng','../tex/img/bi_2_2.png')
 
 %% 5)
@@ -141,6 +149,8 @@ ylabel('Compartment NR.');
 xlabel('t in ms');
 zlabel('V in mV');
 set(gca, 'XTick', 1:500:4001, 'XTickLabel', 0:12.5:100);
+c = colorbar;
+ylabel(c, 'V in mV');
 %print(f,'-dpng','../tex/img/mono_pos_025_2.png')
 
 %% 5)
@@ -167,4 +177,6 @@ ylabel('Compartment NR.');
 xlabel('t in ms');
 zlabel('V in mV');
 set(gca, 'XTick', 1:500:4001, 'XTickLabel', 0:12.5:100);
+c = colorbar;
+ylabel(c, 'V in mV');
 %print(f,'-dpng','../tex/img/mono_pos_5_2.png')
