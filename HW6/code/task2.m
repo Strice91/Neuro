@@ -28,7 +28,7 @@ xlabel('t in ms');
 set(gca, 'XTick', 1:500:4001, 'XTickLabel', 0:12.5:100);
 c = colorbar;
 ylabel(c, 'V in mV');
-print(f,'-dpng','../tex/img/mono_neg_025_1.png')
+%print(f,'-dpng','../tex/img/mono_neg_025_1.png')
 
 f = figure;
 mesh(V);
@@ -37,7 +37,7 @@ ylabel('Compartment NR.');
 xlabel('t in ms');
 zlabel('V in mV');
 set(gca, 'XTick', 1:500:4001, 'XTickLabel', 0:12.5:100);
-print(f,'-dpng','../tex/img/mono_neg_025_2.png')
+%print(f,'-dpng','../tex/img/mono_neg_025_2.png')
 
 %% 2)
 amps = -1;
@@ -54,7 +54,7 @@ xlabel('t in ms');
 set(gca, 'XTick', 1:500:4001, 'XTickLabel', 0:12.5:100);
 c = colorbar;
 ylabel(c, 'V in mV');
-print(f,'-dpng','../tex/img/mono_neg_1_1.png')
+%print(f,'-dpng','../tex/img/mono_neg_1_1.png')
 
 f = figure;
 mesh(V);
@@ -63,7 +63,7 @@ ylabel('Compartment NR.');
 xlabel('t in ms');
 zlabel('V in mV');
 set(gca, 'XTick', 1:500:4001, 'XTickLabel', 0:12.5:100);
-print(f,'-dpng','../tex/img/mono_neg_1_2.png')
+%print(f,'-dpng','../tex/img/mono_neg_1_2.png')
 
 %% 3)
 amps = 0.5;
@@ -80,7 +80,7 @@ xlabel('t in ms');
 set(gca, 'XTick', 1:500:4001, 'XTickLabel', 0:12.5:100);
 c = colorbar;
 ylabel(c, 'V in mV');
-print(f,'-dpng','../tex/img/bi_05_1.png')
+%print(f,'-dpng','../tex/img/bi_05_1.png')
 
 f = figure;
 mesh(V);
@@ -89,7 +89,7 @@ ylabel('Compartment NR.');
 xlabel('t in ms');
 zlabel('V in mV');
 set(gca, 'XTick', 1:500:4001, 'XTickLabel', 0:12.5:100);
-print(f,'-dpng','../tex/img/bi_05_2.png')
+%print(f,'-dpng','../tex/img/bi_05_2.png')
 
 %% 4)
 amps = 2;
@@ -106,7 +106,7 @@ xlabel('t in ms');
 set(gca, 'XTick', 1:500:4001, 'XTickLabel', 0:12.5:100);
 c = colorbar;
 ylabel(c, 'V in mV');
-print(f,'-dpng','../tex/img/bi_2_1.png')
+%print(f,'-dpng','../tex/img/bi_2_1.png')
 
 f = figure;
 mesh(V);
@@ -115,7 +115,7 @@ ylabel('Compartment NR.');
 xlabel('t in ms');
 zlabel('V in mV');
 set(gca, 'XTick', 1:500:4001, 'XTickLabel', 0:12.5:100);
-print(f,'-dpng','../tex/img/bi_2_2.png')
+%print(f,'-dpng','../tex/img/bi_2_2.png')
 
 %% 5)
 amps = 0.25;
@@ -132,7 +132,7 @@ xlabel('t in ms');
 set(gca, 'XTick', 1:500:4001, 'XTickLabel', 0:12.5:100);
 c = colorbar;
 ylabel(c, 'V in mV');
-print(f,'-dpng','../tex/img/mono_pos_025_1.png')
+%print(f,'-dpng','../tex/img/mono_pos_025_1.png')
 
 f = figure;
 mesh(V);
@@ -141,7 +141,7 @@ ylabel('Compartment NR.');
 xlabel('t in ms');
 zlabel('V in mV');
 set(gca, 'XTick', 1:500:4001, 'XTickLabel', 0:12.5:100);
-print(f,'-dpng','../tex/img/mono_pos_025_2.png')
+%print(f,'-dpng','../tex/img/mono_pos_025_2.png')
 
 %% 5)
 amps = 5;
@@ -158,7 +158,7 @@ xlabel('t in ms');
 set(gca, 'XTick', 1:500:4001, 'XTickLabel', 0:12.5:100);
 c = colorbar;
 ylabel(c, 'V in mV');
-print(f,'-dpng','../tex/img/mono_pos_5_1.png')
+%print(f,'-dpng','../tex/img/mono_pos_5_1.png')
 
 f = figure;
 mesh(V);
@@ -167,4 +167,4 @@ ylabel('Compartment NR.');
 xlabel('t in ms');
 zlabel('V in mV');
 set(gca, 'XTick', 1:500:4001, 'XTickLabel', 0:12.5:100);
-print(f,'-dpng','../tex/img/mono_pos_5_2.png')
+%print(f,'-dpng','../tex/img/mono_pos_5_2.png')
