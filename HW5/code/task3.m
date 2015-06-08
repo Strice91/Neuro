@@ -34,8 +34,8 @@ Default = Para;
 
 %% Change c
 Para = Default;
-f = figure;
-c_array =  [0.5,1,5];
+f = figure('position', [1366, 0, 640, 1080]);
+c_array =  [0.6,1.5,1.9];
 for i = 1:3
     Para.c = c_array(i);
     
@@ -46,18 +46,18 @@ for i = 1:3
 
     subplot(3,1,i);
     imagesc(V);
-    title(sprintf('c = %.2f',Para.c))
+    title(strcat(sprintf('c = %.2f',Para.c),'\muF/cm^2'))
     ylabel('Compartment NR.');
     xlabel('t in ms');
     set(gca, 'XTick', 1:500:4001, 'XTickLabel', 0:12.5:100);
     c = colorbar;
     ylabel(c, 'V in mV');
 end
-%print(f,'-dpng','../tex/img/compart1.png')
+print(f,'-dpng','../tex/img/change_c.png')
 
 %% Change rho
 Para = Default;
-f = figure;
+f = figure('position', [1366, 0, 640, 1080]);
 roh_array =  [0.05,0.1,0.2];
 for i = 1:3
     Para.roh = roh_array(i);
@@ -69,18 +69,18 @@ for i = 1:3
 
     subplot(3,1,i);
     imagesc(V);
-    title(sprintf('rho = %.2f',Para.roh))
+    title(strcat('\rho',sprintf(' = %.2f',Para.roh),'k\Omegacm'));
     ylabel('Compartment NR.');
     xlabel('t in ms');
     set(gca, 'XTick', 1:500:4001, 'XTickLabel', 0:12.5:100);
     c = colorbar;
     ylabel(c, 'V in mV');
 end
-%print(f,'-dpng','../tex/img/compart1.png')
+print(f,'-dpng','../tex/img/change_rho.png')
     
 %% Change r axon
 Para = Default;
-f = figure;
+f = figure('position', [1366, 0, 640, 1080]);
 r_array =  [1.5e-4,2e-4,3e-4];
 for i = 1:3
     Para.r = r_array(i);
@@ -92,19 +92,19 @@ for i = 1:3
 
     subplot(3,1,i);
     imagesc(V);
-    title(sprintf('r_{axon} = %.1e',Para.r))
+    title(sprintf('r_{axon} = %.1e cm',Para.r))
     ylabel('Compartment NR.');
     xlabel('t in ms');
     set(gca, 'XTick', 1:500:4001, 'XTickLabel', 0:12.5:100);
     c = colorbar;
     ylabel(c, 'V in mV');
 end
-%print(f,'-dpng','../tex/img/compart1.png')
+print(f,'-dpng','../tex/img/change_r.png')
 
 %% Change l comp
 Para = Default;
-f = figure;
-l_array =  [0.05e-4,0.1e-4,0.2e-4];
+f = figure('position', [1366, 0, 640, 1080]);
+l_array =  [0.05e-4,0.16e-4,0.2e-4];
 for i = 1:3
     Para.l = l_array(i);
     
@@ -115,19 +115,19 @@ for i = 1:3
 
     subplot(3,1,i);
     imagesc(V);
-    title(sprintf('l_{comp} = %.2e',Para.l))
+    title(sprintf('l_{comp} = %.2e cm',Para.l))
     ylabel('Compartment NR.');
     xlabel('t in ms');
     set(gca, 'XTick', 1:500:4001, 'XTickLabel', 0:12.5:100);
     c = colorbar;
     ylabel(c, 'V in mV');
 end
-%print(f,'-dpng','../tex/img/compart1.png')
+print(f,'-dpng','../tex/img/change_l.png')
 
 %% Change temperature
 Para = Default;
-f = figure;
-T_array =  [0,6.3,12];
+f = figure('position', [1366, 0, 640, 1080]);
+T_array =  [0,8,12];
 for i = 1:3
     Para.T = T_array(i);
     
@@ -138,11 +138,11 @@ for i = 1:3
 
     subplot(3,1,i);
     imagesc(V);
-    title(sprintf('T = %.2f',Para.T))
+    title(strcat(sprintf('T = %.2f',Para.T),'^\circC'))
     ylabel('Compartment NR.');
     xlabel('t in ms');
     set(gca, 'XTick', 1:500:4001, 'XTickLabel', 0:12.5:100);
     c = colorbar;
     ylabel(c, 'V in mV');
 end
-%print(f,'-dpng','../tex/img/compart1.png')
+print(f,'-dpng','../tex/img/change_T.png')
