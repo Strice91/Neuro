@@ -20,15 +20,15 @@
 \usepackage[]{mcode}	%Matlab Code
 \usepackage{tikz,pgfplots}	%Tikz
 
-\usepgfplotslibrary{external} 
-\tikzexternalize
-\tikzsetexternalprefix{ext/}
+%\usepgfplotslibrary{external} 
+%\tikzexternalize
+%\tikzsetexternalprefix{ext/}
 
 % Bookmark Setup
 \bookmarksetup{numbered}
 
 % PDF Setup
-\hypersetup{pdftitle={Homework 5}, pdfsubject={Documentation of 5th Homework}, pdfauthor={Stefan Röhrl}, pdfkeywords={Neuroprothetik Exercise}, pdfcreator={LaTeX}, hidelinks}
+\hypersetup{pdftitle={Homework 6}, pdfsubject={Documentation of 6th Homework}, pdfauthor={Stefan Röhrl}, pdfkeywords={Neuroprothetik Exercise}, pdfcreator={LaTeX}, hidelinks}
 
 
 \begin{document}
@@ -38,7 +38,7 @@
 %
 % paper title
 % can use linebreaks \\ within to get better formatting as desired
-\title{Homework 5\\ Multicompartment Model}
+\title{Homework 6\\ Electric Stimulation}
 
 \author{\IEEEauthorblockN{Stefan Röhrl}
 \IEEEauthorblockA{Technische Universität München, Arcisstraße 21, Munich, Germany\\
@@ -52,28 +52,126 @@ Email: stefan.roehrl@tum.de}}
 
 \IEEEpeerreviewmaketitle
 
-\section{Create a Multicompartment Model}
-Das Multicompartment Modell wurde durch Einfügen einer zusätzlichen Dimension in alle Variablen umgesetzt. Die neuen Spannungswerte werden wie in den Hausaufgaben Folien vorgeschlagen durch lösen eines Gleichungssystems berechnet.
+\section{Calculate the Potential Field}
 
+Das Potential auf einer der ebenen Fläche wird wie folgt berechnet:
 \begin{lstlisting}
-    % Berechnen Membranspannung
-    B = V(:,k)+dt/c * (-sum(i_ion(:,k,:),3)...
-        + iStimulus(:,k));
-    A = (eye(comparts) - dt/(c * Ra) * C);
-    V(:,k+1) = A\B;
+% Koordinaten in der X,Y-Ebene
+[X,Y] =  meshgrid(-dim(1)/2:0.1:dim(1)/2,...
+				  -dim(2)/2:0.1:dim(2)/2);
+% Radialer Abstand
+r = sqrt(X.^2 + Y.^2 + z^2);
+% Potential
+Phi = (rho_medium * I) ./ (4 * pi .* r);
 \end{lstlisting}
 
-\section{Experiments}
-
 \begin{enumerate}
-
-\item Die Anregung mit einem 5ms langen Puls mit einer Amplitude von $10\frac{\mu A}{cm^2}$ führt zu folgendem Verlauf der Membranpotentiale jedes Compartments. 
+\item Der Potenzialverlauf auf einer $50\mu m$ x $50\mu m$ Ebene über der eine Elektrode in $10\mu m$ Abstand angebracht ist in Abbildung \ref{fig:potField} dargestellt. Der Anregende Strom hat eine Größe von 1mA.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.5\textwidth]{img/compart1.png}
-	\caption{Anregung an Compartment 1}
-	\label{fig:compart1}
+	\includegraphics[width=0.5\textwidth]{img/potField.png}
+	\caption{Potenzialfrei auf der Ebene}
+	\label{fig:potField}
+\end{figure}
+
+\item Die folgenden drei Graphen zeigen den Potenzialverlauf (\ref{fig:Phi1}), das elektrische Feld (\ref{fig:E1}) und die Aktivierungsfunktion (\ref{fig:A1}) bei einem Elektrodenstrom von 1mA.\\
+
+\begin{figure}[h!]
+  	\centering
+    \scalebox{.6}{\input{img/Phi1.tikz}}
+    \caption{Potenzialverlauf im Axon bei I = 1mA}
+    \label{fig:Phi1}
+\end{figure}
+
+\begin{figure}[h!]
+  	\centering
+    \scalebox{.6}{\input{img/E1.tikz}}
+    \caption{Elektrisches Feld im Axon bei I = 1mA}
+    \label{fig:E1}
+\end{figure}
+
+\begin{figure}[h!]
+  	\centering
+    \scalebox{.6}{\input{img/A1.tikz}}
+    \caption{Aktivierungsfunktion im Axon bei I = 1mA}
+    \label{fig:A1}
+\end{figure}
+
+Die anderen drei Graphen zeigen den Potenzialverlauf (\ref{fig:Phi2}), das elektrische Feld (\ref{fig:E2}) und die Aktivierungsfunktion (\ref{fig:A2}) bei einem Elektrodenstrom von -1mA.
+
+\begin{figure}[h!]
+  	\centering
+    \scalebox{.6}{\input{img/Phi2.tikz}}
+    \caption{Potenzialverlauf im Axon bei I = -1mA}
+    \label{fig:Phi2}
+\end{figure}
+
+\begin{figure}[h!]
+  	\centering
+    \scalebox{.6}{\input{img/E2.tikz}}
+    \caption{Elektrisches Feld im Axon bei I = -1mA}
+    \label{fig:E2}
+\end{figure}
+
+\begin{figure}[h!]
+  	\centering
+    \scalebox{.6}{\input{img/A2.tikz}}
+    \caption{Aktivierungsfunktion im Axon bei I = -1mA}
+    \label{fig:A2}
+\end{figure}
+
+\end{enumerate}
+
+\section{Create a Neuron Model}
+
+\begin{enumerate}
+\item Einphasiger Strompuls mit Amplitude -0.25mA
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.5\textwidth]{img/mono_neg_025_1.png}
+	\caption{Membranspannung mit I = -0.25mA (einphasig)}
+	\label{fig:mono_neg_025_1}
+\end{figure}
+
+\item Einphasiger Strompuls mit Amplitude -1mA
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.5\textwidth]{img/mono_neg_1_1.png}
+	\caption{Membranspannung mit I = -1mA (einphasig)}
+	\label{fig:mono_neg_1_1}
+\end{figure}
+
+\item Bi-phasiger Strompuls mit Amplitude 0.5mA
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.5\textwidth]{img/bi_05_1.png}
+	\caption{Membranspannung mit I = 0.5mA (bi-phasig)}
+	\label{fig:bi_05_1}
+\end{figure}
+
+\item Bi-phasiger Strompuls mit Amplitude 2mA
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.5\textwidth]{img/bi_2_1.png}
+	\caption{Membranspannung mit I = 2mA (bi-phasig)}
+	\label{fig:bi_2_1}
+\end{figure}
+
+\item Einphasiger Strompuls mit Amplitude 0.25mA
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.5\textwidth]{img/mono_pos_025_1.png}
+	\caption{Membranspannung mit I = 0.25mA (einphasig)}
+	\label{fig:mono_pos_025_1}
+\end{figure}
+
+\item Einphasiger Strompuls mit Amplitude 5mA
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.5\textwidth]{img/mono_pos_5_1.png}
+	\caption{Membranspannung mit I = 5mA (einphasig)}
+	\label{fig:mono_pos_5_1}
 \end{figure}
 
 \end{enumerate}

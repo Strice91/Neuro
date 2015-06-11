@@ -25,12 +25,12 @@ A = @(tau) -1./tau;
 B = @(tau,x_steady) 1./tau .* x_steady;
 
 % Konstanten
-VNa   = 115;
-VK    = -12;
-VL    = 10.6;
-gNa   = 120;
-gK    = 36;
-gL    = 0.3;
+VNa   = 115;    % mV
+VK    = -12;    % mV
+VL    = 10.6;   % mV
+gNa   = 120;    % mS/cm²
+gK    = 36;     % mS/cm²
+gL    = 0.3;    % mS/cm²
 
 % Variablen aus der letzten Itteration
 m_old = last_gate(:,1);
@@ -43,9 +43,9 @@ n = exp_euler_step(n_old,A(tau_n),B(tau_n,n_steady),dt);
 h = exp_euler_step(h_old,A(tau_h),B(tau_h,h_steady),dt);
 
 % Strom
-iNa = gNa * m.^3 .* h .* (V-VNa);
-iK  = gK * n.^4 .* (V-VK);
-iL  = gL * (V-VL);
+iNa = gNa * m.^3 .* h .* (V-VNa);   %µA/cm²
+iK  = gK * n.^4 .* (V-VK);          %µA/cm²
+iL  = gL * (V-VL);                  %µA/cm²
 
 % Zusammenfassung der Ergebnisse
 i_ion = [iNa,iK,iL];

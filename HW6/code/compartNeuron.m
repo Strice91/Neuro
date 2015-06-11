@@ -6,11 +6,11 @@ V = zeros(comparts,steps+1);
 V(:,1) = V0; 
 c = 1;
 
-roh_axon = 0.01;
-r_axon = 1.5e-4;
-l_comp = 0.5e-4;
+roh_axon = 0.01;    % k Ohm cm
+r_axon = 1.5e-4;    % cm
+l_comp = 0.5e-4;    % cm
 
-Ra = roh_axon * l_comp / (r_axon^2 * pi);
+Ra = roh_axon * l_comp / (r_axon^2 * pi); % k Ohm
 
 
 % Connection Matrix
