@@ -75,58 +75,70 @@ Phi = (rho_medium * I) ./ (4 * pi .* r);
 	\label{fig:potField}
 \end{figure}
 
-\item Die folgenden drei Graphen zeigen den Potenzialverlauf (\ref{fig:Phi1}), das elektrische Feld (\ref{fig:E1}) und die Aktivierungsfunktion (\ref{fig:A1}) bei einem Elektrodenstrom von 1mA.\\
+\item Die folgenden drei Graphen zeigen den Potenzialverlauf (Abb. \ref{fig:Phi1}), das elektrische Feld (Abb. \ref{fig:E1}) und die Aktivierungsfunktion (Abb. \ref{fig:A1}) bei einem Elektrodenstrom von 1mA.\\
 
 \begin{figure}[h!]
   	\centering
-    \scalebox{.6}{\input{img/Phi1.tikz}}
+    \scalebox{.5}{\input{img/Phi1.tikz}}
+    \vspace{-10pt}
     \caption{Potenzialverlauf im Axon bei I = 1mA}
+    \vspace{-10pt}
     \label{fig:Phi1}
 \end{figure}
-
 \begin{figure}[h!]
   	\centering
-    \scalebox{.6}{\input{img/E1.tikz}}
+    \scalebox{.5}{\input{img/E1.tikz}}
+    \vspace{-10pt}
     \caption{Elektrisches Feld im Axon bei I = 1mA}
+    \vspace{-10pt}
     \label{fig:E1}
 \end{figure}
-
 \begin{figure}[h!]
   	\centering
-    \scalebox{.6}{\input{img/A1.tikz}}
+    \scalebox{.5}{\input{img/A1.tikz}}
+    \vspace{-10pt}
     \caption{Aktivierungsfunktion im Axon bei I = 1mA}
+    \vspace{-10pt}
     \label{fig:A1}
 \end{figure}
 
-Die anderen drei Graphen zeigen den Potenzialverlauf (\ref{fig:Phi2}), das elektrische Feld (\ref{fig:E2}) und die Aktivierungsfunktion (\ref{fig:A2}) bei einem Elektrodenstrom von -1mA.
+Die anderen drei Graphen zeigen den Potenzialverlauf (Abb. \ref{fig:Phi2}), das elektrische Feld (Abb. \ref{fig:E2}) und die Aktivierungsfunktion (Abb. \ref{fig:A2}) bei einem Elektrodenstrom von -1mA.
 
 \begin{figure}[h!]
   	\centering
     \scalebox{.6}{\input{img/Phi2.tikz}}
+    \vspace{-10pt}
     \caption{Potenzialverlauf im Axon bei I = -1mA}
+    \vspace{-10pt}
     \label{fig:Phi2}
 \end{figure}
-
 \begin{figure}[h!]
   	\centering
     \scalebox{.6}{\input{img/E2.tikz}}
+    \vspace{-10pt}
     \caption{Elektrisches Feld im Axon bei I = -1mA}
+    \vspace{-10pt}
     \label{fig:E2}
 \end{figure}
-
 \begin{figure}[h!]
   	\centering
     \scalebox{.6}{\input{img/A2.tikz}}
+    \vspace{-10pt}
     \caption{Aktivierungsfunktion im Axon bei I = -1mA}
+    \vspace{-10pt}
     \label{fig:A2}
 \end{figure}
 
 \end{enumerate}
 
+\pagebreak
+~
+\newpage
+\vspace{30pt}
 \section{Create a Neuron Model}
 
 \begin{enumerate}
-\item Einphasiger Strompuls mit Amplitude -0.25mA
+\item Einphasiger Strompuls mit Amplitude -0.25mA\\ (vgl. Abb. \ref{fig:mono_neg_025_1}) Bei einem negativen Strom sieht die Aktivierungsfunktion wie in Abbildung \ref{fig:A2} aus. Der Strom ist jedoch so klein, dass die Aktivierungsfunktion in keinem Compartment groß genug ist, um ein Aktionspotential auszulösen.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.5\textwidth]{img/mono_neg_025_1.png}
@@ -134,7 +146,7 @@ Die anderen drei Graphen zeigen den Potenzialverlauf (\ref{fig:Phi2}), das elekt
 	\label{fig:mono_neg_025_1}
 \end{figure}
 
-\item Einphasiger Strompuls mit Amplitude -1mA
+\item Einphasiger Strompuls mit Amplitude -1mA\\ (vgl. Abb. \ref{fig:mono_neg_1_1}) Da es sich hier auch um einen negativen Strom handelt hat die Aktivierungsfunktion auch ihr Hauptmaximum in der Mitte (bei 0\textmu m bzw. bei Compartment 50). Der Strom ist groß genug um eine Aktivierung zu erzeugen, die ein Aktionspotential hervor ruft. Dieses propagiert symmetrisch nach links und rechts.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.5\textwidth]{img/mono_neg_1_1.png}
@@ -142,7 +154,7 @@ Die anderen drei Graphen zeigen den Potenzialverlauf (\ref{fig:Phi2}), das elekt
 	\label{fig:mono_neg_1_1}
 \end{figure}
 
-\item Bi-phasiger Strompuls mit Amplitude 0.5mA
+\item Bi-phasiger Strompuls mit Amplitude 0.5mA\\ (vgl. Abb. \ref{fig:bi_05_1})
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.5\textwidth]{img/bi_05_1.png}
@@ -150,7 +162,7 @@ Die anderen drei Graphen zeigen den Potenzialverlauf (\ref{fig:Phi2}), das elekt
 	\label{fig:bi_05_1}
 \end{figure}
 
-\item Bi-phasiger Strompuls mit Amplitude 2mA
+\item Bi-phasiger Strompuls mit Amplitude 2mA\\ (vgl. Abb. \ref{fig:bi_2_1})
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.5\textwidth]{img/bi_2_1.png}
@@ -158,7 +170,7 @@ Die anderen drei Graphen zeigen den Potenzialverlauf (\ref{fig:Phi2}), das elekt
 	\label{fig:bi_2_1}
 \end{figure}
 
-\item Einphasiger Strompuls mit Amplitude 0.25mA
+\item Einphasiger Strompuls mit Amplitude 0.25mA\\ (vgl. Abb. \ref{fig:mono_pos_025_1})
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.5\textwidth]{img/mono_pos_025_1.png}
@@ -166,7 +178,7 @@ Die anderen drei Graphen zeigen den Potenzialverlauf (\ref{fig:Phi2}), das elekt
 	\label{fig:mono_pos_025_1}
 \end{figure}
 
-\item Einphasiger Strompuls mit Amplitude 5mA
+\item Einphasiger Strompuls mit Amplitude 5mA\\ (vgl. Abb. \ref{fig:mono_pos_5_1})
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.5\textwidth]{img/mono_pos_5_1.png}
