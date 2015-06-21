@@ -28,7 +28,7 @@
 \bookmarksetup{numbered}
 
 % PDF Setup
-\hypersetup{pdftitle={Homework 6}, pdfsubject={Documentation of 6th Homework}, pdfauthor={Stefan Röhrl}, pdfkeywords={Neuroprothetik Exercise}, pdfcreator={LaTeX}, hidelinks}
+\hypersetup{pdftitle={Homework 7}, pdfsubject={Documentation of 7th Homework}, pdfauthor={Stefan Röhrl}, pdfkeywords={Neuroprothetik Exercise}, pdfcreator={LaTeX}, hidelinks}
 
 
 \begin{document}
@@ -38,7 +38,7 @@
 %
 % paper title
 % can use linebreaks \\ within to get better formatting as desired
-\title{Homework 6\\ Electric Stimulation}
+\title{Homework 7\\ CI Signalverarbeitung}
 
 \author{\IEEEauthorblockN{Stefan Röhrl}
 \IEEEauthorblockA{Technische Universität München, Arcisstraße 21, Munich, Germany\\
@@ -52,141 +52,6 @@ Email: stefan.roehrl@tum.de}}
 
 \IEEEpeerreviewmaketitle
 
-\section{Calculate the Potential Field}
-
-Das Potential auf einer der ebenen Fläche wird wie folgt berechnet:
-\begin{lstlisting}
-% Koordinaten in der X,Y-Ebene
-[X,Y] =  meshgrid(-dim(1)/2:0.1:dim(1)/2,...
-				  -dim(2)/2:0.1:dim(2)/2);
-% Radialer Abstand
-r = sqrt(X.^2 + Y.^2 + z^2);
-% Potential
-Phi = (rho_medium * I) ./ (4 * pi .* r);
-\end{lstlisting}
-
-\begin{enumerate}
-\item Der Potenzialverlauf auf einer $50\mu m$ x $50\mu m$ Ebene über der eine Elektrode in $10\mu m$ Abstand angebracht ist in Abbildung \ref{fig:potField} dargestellt. Der Anregende Strom hat eine Größe von 1mA.
-
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.5\textwidth]{img/potField.png}
-	\caption{Potenzialfrei auf der Ebene}
-	\label{fig:potField}
-\end{figure}
-
-\item Die folgenden drei Graphen zeigen den Potenzialverlauf (Abb. \ref{fig:Phi1}), das elektrische Feld (Abb. \ref{fig:E1}) und die Aktivierungsfunktion (Abb. \ref{fig:A1}) bei einem Elektrodenstrom von 1mA.\\
-
-\begin{figure}[h!]
-  	\centering
-    \scalebox{.5}{\input{img/Phi1.tikz}}
-    \vspace{-10pt}
-    \caption{Potenzialverlauf im Axon bei I = 1mA}
-    \vspace{-10pt}
-    \label{fig:Phi1}
-\end{figure}
-\begin{figure}[h!]
-  	\centering
-    \scalebox{.5}{\input{img/E1.tikz}}
-    \vspace{-10pt}
-    \caption{Elektrisches Feld im Axon bei I = 1mA}
-    \vspace{-10pt}
-    \label{fig:E1}
-\end{figure}
-\begin{figure}[h!]
-  	\centering
-    \scalebox{.5}{\input{img/A1.tikz}}
-    \vspace{-10pt}
-    \caption{Aktivierungsfunktion im Axon bei I = 1mA}
-    \vspace{-10pt}
-    \label{fig:A1}
-\end{figure}
-
-Die anderen drei Graphen zeigen den Potenzialverlauf (Abb. \ref{fig:Phi2}), das elektrische Feld (Abb. \ref{fig:E2}) und die Aktivierungsfunktion (Abb. \ref{fig:A2}) bei einem Elektrodenstrom von -1mA.
-
-\begin{figure}[h!]
-  	\centering
-    \scalebox{.6}{\input{img/Phi2.tikz}}
-    \vspace{-10pt}
-    \caption{Potenzialverlauf im Axon bei I = -1mA}
-    \vspace{-10pt}
-    \label{fig:Phi2}
-\end{figure}
-\begin{figure}[h!]
-  	\centering
-    \scalebox{.6}{\input{img/E2.tikz}}
-    \vspace{-10pt}
-    \caption{Elektrisches Feld im Axon bei I = -1mA}
-    \vspace{-10pt}
-    \label{fig:E2}
-\end{figure}
-\begin{figure}[h!]
-  	\centering
-    \scalebox{.6}{\input{img/A2.tikz}}
-    \vspace{-10pt}
-    \caption{Aktivierungsfunktion im Axon bei I = -1mA}
-    \vspace{-10pt}
-    \label{fig:A2}
-\end{figure}
-
-\end{enumerate}
-
-\pagebreak
-~
-\newpage
-\vspace{30pt}
-\section{Create a Neuron Model}
-
-\begin{enumerate}
-\item Einphasiger Strompuls mit Amplitude -0.25mA\\ (vgl. Abb. \ref{fig:mono_neg_025_1}) Bei einem negativen Strom sieht die Aktivierungsfunktion wie in Abbildung \ref{fig:A2} aus. Der Strom ist jedoch so klein, dass die Aktivierungsfunktion in keinem Compartment groß genug ist, um ein Aktionspotential auszulösen.
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=0.5\textwidth]{img/mono_neg_025_1.png}
-	\caption{Membranspannung mit I = -0.25mA (einphasig)}
-	\label{fig:mono_neg_025_1}
-\end{figure}
-
-\item Einphasiger Strompuls mit Amplitude -1mA\\ (vgl. Abb. \ref{fig:mono_neg_1_1}) Da es sich hier auch um einen negativen Strom handelt hat die Aktivierungsfunktion auch ihr Hauptmaximum in der Mitte (bei 0\textmu m bzw. bei Compartment 50). Der Strom ist groß genug um eine Aktivierung zu erzeugen, die ein Aktionspotential hervor ruft. Dieses propagiert symmetrisch nach links und rechts.
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=0.5\textwidth]{img/mono_neg_1_1.png}
-	\caption{Membranspannung mit I = -1mA (einphasig)}
-	\label{fig:mono_neg_1_1}
-\end{figure}
-
-\item Bi-phasiger Strompuls mit Amplitude 0.5mA\\ (vgl. Abb. \ref{fig:bi_05_1})
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=0.5\textwidth]{img/bi_05_1.png}
-	\caption{Membranspannung mit I = 0.5mA (bi-phasig)}
-	\label{fig:bi_05_1}
-\end{figure}
-
-\item Bi-phasiger Strompuls mit Amplitude 2mA\\ (vgl. Abb. \ref{fig:bi_2_1})
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=0.5\textwidth]{img/bi_2_1.png}
-	\caption{Membranspannung mit I = 2mA (bi-phasig)}
-	\label{fig:bi_2_1}
-\end{figure}
-
-\item Einphasiger Strompuls mit Amplitude 0.25mA\\ (vgl. Abb. \ref{fig:mono_pos_025_1})
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=0.5\textwidth]{img/mono_pos_025_1.png}
-	\caption{Membranspannung mit I = 0.25mA (einphasig)}
-	\label{fig:mono_pos_025_1}
-\end{figure}
-
-\item Einphasiger Strompuls mit Amplitude 5mA\\ (vgl. Abb. \ref{fig:mono_pos_5_1})
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=0.5\textwidth]{img/mono_pos_5_1.png}
-	\caption{Membranspannung mit I = 5mA (einphasig)}
-	\label{fig:mono_pos_5_1}
-\end{figure}
-
-\end{enumerate}
 
 \end{document}
 

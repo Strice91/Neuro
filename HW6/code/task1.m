@@ -48,11 +48,11 @@ title('E with I = 1mA');
 %matlab2tikz('../tex/img/E1.tikz');
 
 % c)
-A = diff(diff(Phi .* 1e-3)) / 0.1^2;
+A = diff(diff(Phi)) / 0.1^2;
 A = [A,A(end)];
 f = figure;
 plot(A);
-ylabel('Activationfunction in V/ \mum^2');
+ylabel('Activationfunction in mV/ \mum^2');
 xlabel('x distance in \mum');
 set(gca, 'XTick', 1:50:501, 'XTickLabel', -25:5:25);
 xlim([1,501])
@@ -89,11 +89,11 @@ title('E with I = -1mA');
 %matlab2tikz('../tex/img/E2.tikz');
 
 % c)
-A = diff(diff(Phi .* 1e-3)) / 0.1^2;
+A = diff(diff(Phi)) / 0.1^2;
 A = [A,A(end)];
 f = figure;
 plot(A);
-ylabel('Activationfunction in V/ \mum^2');
+ylabel('Activationfunction in mV/ \mum^2');
 xlabel('x distance in \mum');
 set(gca, 'XTick', 1:50:501, 'XTickLabel', -25:5:25);
 xlim([1,501])

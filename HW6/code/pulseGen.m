@@ -18,9 +18,9 @@ else
     cnt = 1;
     for i = 1:pulseCnt
         cnt = cnt + delaySteps;
-        p(cnt:cnt+widthSteps) = amps(i);
-        cnt = cnt + widthSteps;
         p(cnt:cnt+widthSteps) = -amps(i);
+        cnt = cnt + widthSteps;
+        p(cnt:cnt+widthSteps) = amps(i);
         cnt = cnt + widthSteps;
     end    
 end
