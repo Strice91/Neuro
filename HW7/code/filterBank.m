@@ -1,4 +1,4 @@
-function [ output_args ] = filterBank( loFreq,hiFreq,numChannels,n_ff,fs,x )
+function [ Filterausgang, H, Gr, w, w_gd ] = filterBank(loFreq,hiFreq,numChannels,n_ff,fs,x)
 
 % Greenwood Parameters (1990)
 EarQ = 7.23824;
