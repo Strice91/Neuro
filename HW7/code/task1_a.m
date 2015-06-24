@@ -7,7 +7,7 @@ n_ff = 1000;
 % Lese Signal ein
 % x  = Signal
 % fs = Abtastrate
-[x,fs] = read_audio_mono('audio/test.wav');
+[x,fs] = read_audio_mono('audio/piano.wav');
 
 % FFT des Signals
 n = floor(length(x)/2);
