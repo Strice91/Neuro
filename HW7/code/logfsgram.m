@@ -81,8 +81,8 @@ y = sqrt( mx * (abs(XX).^2) );
 if nargout < 1
   imagesc([0 length(X)/SR],[1 nbins],20*log10(y));
   axis xy
-  xlabel('Time');
-  ylabel('Frequency');
+  xlabel('Time in s');
+  ylabel('Frequency in Hz');
   yt = get(gca,'YTick');
   for i = 1:length(yt)
     ytl{i} = sprintf('%.0f',logffrqs(yt(i)));
