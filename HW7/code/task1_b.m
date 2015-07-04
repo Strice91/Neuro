@@ -7,32 +7,34 @@ n_ff = 1000;
 % Lese Signal ein
 % x  = Signal
 % fs = Abtastrate
-[x,fs] = read_audio_mono('audio/piano.wav');
+[x,fs] = read_audio_mono('audio/test.wav');
 
-%% 6 Kanï¿½le
+%% 6 Kanäle
 nChan = 6;
 [filtOut6, H6, Gr6] = filterBank(loFreq,hiFreq,nChan,n_ff,fs,x);
 t = (0:length(filtOut6)-1) / fs;
 
-figure;
+fig = figure;
 for f = 1:6
-    subplot(2,3,f);
+    subplot(3,2,f);
     plot(t,filtOut6(:,f));
     title(sprintf('Kanal %i',f));
     xlabel('Zeit in s');
     ylabel('Druck in pa');
 end
+print(fig,'-dpng','../tex/img/fb_6.png')
 
-%% 12 Kanï¿½le
+%% 12 Kanäle
 nChan = 12;
 [filtOut12, H12, Gr12] = filterBank(loFreq,hiFreq,nChan,n_ff,fs,x);
 
-figure;
+fig = figure;
 for f = 1:12
-    subplot(3,4,f);
+    subplot(4,3,f);
     plot(t,filtOut12(:,f));
     title(sprintf('Kanal %i',f));
     xlabel('Zeit in s');
     ylabel('Druck in pa');
 end
+print(fig,'-dpng','../tex/img/fb_12.png')
 

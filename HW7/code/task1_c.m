@@ -39,45 +39,51 @@ FFTtmp_s = fft(signal');
 FFT_s = abs(FFTtmp_s(:,1:n+1)./n);
 
 
-figure;
+fig = figure;
 plot(t,x);
 title('Original Signal');
 xlabel('Zeit in s');
 ylabel('Druck in pa');
 grid on;
+print(fig,'-dpng','../tex/img/sig_orig.png')
 
-figure;
+fig = figure;
 plot(t,signal);
 title('Rekonstruiertes Signal (12 Kanal)');
 xlabel('Zeit in s');
 ylabel('Druck in pa');
 grid on;
+print(fig,'-dpng','../tex/img/sig_rec_12.png')
 
-figure;
+fig = figure;
 logfsgram(x, n_out, fs, N_Fenster, Ueberlapp, loFreq, 1000);
 title('Spektrogram Original');
 caxis([-30 30])
+print(fig,'-dpng','../tex/img/spect_orig.png')
 
-figure;
+fig = figure;
 logfsgram(signal, n_out, fs, N_Fenster, Ueberlapp, loFreq, 1000);
 title('Spektrogram Rekonstruiert (12 Kanal)');
 caxis([-30 30])
+print(fig,'-dpng','../tex/img/spect_rec_12.png')
 
-figure;
+fig = figure;
 semilogx(f,FFT_x);
 title('FFT Original');
 xlabel('Frequenz in Hz');
 ylabel('Druck in pa');
 xlim([10,10000]);
 grid on;
+print(fig,'-dpng','../tex/img/fft_orig.png')
 
-figure;
+fig = figure;
 semilogx(f,FFT_s);
 title('FFT Rekonstruiert (12 Kanal)');
 xlabel('Frequenz in Hz');
 ylabel('Druck in pa');
 xlim([10,10000]);
 grid on;
+print(fig,'-dpng','../tex/img/fft_rec_12.png')
 
 %% 3 Kanal
 nChan = 3;
@@ -100,22 +106,25 @@ FFTtmp_s = fft(signal');
 % Real Anteil und Skalierung (Hz)
 FFT_s = abs(FFTtmp_s(:,1:n+1)./n);
 
-figure;
+fig = figure;
 plot(t,signal);
 title('Rekonstruiertes Signal (3 Kanal)');
 xlabel('Zeit in s');
 ylabel('Druck in pa');
 grid on;
+print(fig,'-dpng','../tex/img/sig_rec_3.png')
 
-figure;
+fig = figure;
 logfsgram(signal, n_out, fs, N_Fenster, Ueberlapp, loFreq, 1000);
 title('Spektrogram Rekonstruiert (3 Kanal)');
 caxis([-30 30])
+print(fig,'-dpng','../tex/img/spect_rec_3.png')
 
-figure;
+fig = figure;
 semilogx(f,FFT_s);
 title('FFT Rekonstruiert (3 Kanal)');
 xlabel('Frequenz in Hz');
 ylabel('Druck in pa');
 xlim([10,10000]);
 grid on;
+print(fig,'-dpng','../tex/img/fft_rec_3.png')
