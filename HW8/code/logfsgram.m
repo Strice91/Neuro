@@ -1,4 +1,4 @@
-function [Y,MX] = logfsgram(X, N, SR, WIN, NOV, FMIN, BPO)
+function [Y,nbins,MX] = logfsgram(X, N, SR, WIN, NOV, FMIN, BPO)
 % [Y,MX] = logfsgram(X, N, SR, WIN, NOV, FMIN, BPO)
 %    Calculate a log-frequency spectrogram
 %    X is input signal; N is parent FFT window; SR is the source samplerate.
@@ -78,7 +78,7 @@ y = sqrt( mx * (abs(XX).^2) );
 
 % so, we lost phase information...
 
-if nargout < 1
+
   imagesc([0 length(X)/SR],[1 nbins],20*log10(y));
   axis xy
   xlabel('Time in s');
@@ -88,7 +88,8 @@ if nargout < 1
     ytl{i} = sprintf('%.0f',logffrqs(yt(i)));
   end
   set(gca,'YTickLabel',ytl);
-else
+
   Y = y;
   MX = mx;
+  
 end

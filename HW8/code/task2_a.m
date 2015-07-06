@@ -7,9 +7,8 @@ n_ff = 1000;
 % Lese Signal ein
 % x  = Signal
 % fs = Abtastrate
-[x,fs] = read_audio_mono('audio/jingle.wav');
+[x,fs] = read_audio_mono('audio/test.wav');
 t = (0:length(x)-1) / fs;
-x = lp_filter(x,30,fs);
 
 %% 8 Kanäle
 nChan = 8;
@@ -18,13 +17,15 @@ nChan = 8;
 HT8 = hilbert(filtOut8);
 env8 = abs(HT8);
 
+sig_dyn_comp8 = comp_dyn(env8);
+
 figure;
 for f = 1:8
     subplot(2,4,f);
-    plot(t,env8(:,f));
+    plot(t,sig_dyn_comp8(:,f));
     title(sprintf('Kanal %i',f));
     xlabel('Zeit in s');
-    ylabel('Druck in pa');
+    ylabel('Stimulus in mA');
 end
 
 %% 16 Kanäle
@@ -34,11 +35,13 @@ nChan = 16;
 HT16 = hilbert(filtOut16);
 env16 = abs(HT16);
 
+sig_dyn_comp16 = comp_dyn(env16);
+
 figure;
 for f = 1:16
     subplot(4,4,f);
-    plot(t,env16(:,f));
+    plot(t,sig_dyn_comp16(:,f));
     title(sprintf('Kanal %i',f));
     xlabel('Zeit in s');
-    ylabel('Druck in pa');
+    ylabel('Stimulus in mA');
 end
