@@ -3,10 +3,10 @@ function [ Envelops_Dy_Comp ] = comp_dyn(Env_Tp,comp_rate)
 % Dynamik Kompression
 SPL_Schwelle=30;
  % Hoerschwelle in [dB]
-SPL_Dynamic=80;
+SPL_Dynamic=50;
  % Dynamikbereich in [dB]
-I_THR=250e-5;     %I_THR=2e-3;
-I_MCL=2500e-3;    %I_MCL=20e-3;
+I_THR=0.25e-3;     %I_THR=2e-3;
+I_MCL=2.5e-3;    %I_MCL=20e-3;
 % [A] Threshold
 % [A] Most Confortabel Level
 %-----------------------------------------------------------

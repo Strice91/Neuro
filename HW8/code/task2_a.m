@@ -17,7 +17,7 @@ nChan = 8;
 HT8 = hilbert(filtOut8);
 env8 = abs(HT8);
 
-sig_dyn_comp8 = comp_dyn(env8);
+sig_dyn_comp8 = comp_dyn(env8,500);
 
 figure;
 for f = 1:8
@@ -35,7 +35,7 @@ nChan = 16;
 HT16 = hilbert(filtOut16);
 env16 = abs(HT16);
 
-sig_dyn_comp16 = comp_dyn(env16);
+sig_dyn_comp16 = comp_dyn(env16,500);
 
 figure;
 for f = 1:16

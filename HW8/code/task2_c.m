@@ -1,14 +1,43 @@
 close all;
 
-I_THR=2e-3;
-I_MCL=20e-3;
+I_THR=0.25;
+I_MCL=2.5;
 
-druck = 0:1e-3:0.25;
+comp_rate = [250, 500, 1000];
 
-kennlinie1 = comp_dyn(druck,1000);
+druck = logspace(-3.5,0, 1000);
 
-figure;
-plot(kennlinie1);
+for i = 1:3
+    
+    kennlinie = comp_dyn(druck,comp_rate(i))*1e+3;
 
-figure;
-semilogx(kennlinie1);
+    fig = figure;
+    plot(druck,kennlinie);
+    hold on;
+    plot(druck,ones(size(druck))*I_THR,'g--');
+    plot(druck,ones(size(druck))*I_MCL,'r--');
+    text(0.15,I_THR+0.1,'I_{THR} = 0.25mA')
+    text(0.15,I_MCL+0.1,'I_{MCL} = 2.5mA')
+    title(sprintf('Linear c = %i', comp_rate(i)));
+    xlabel('Druck in pa');
+    ylabel('I in mA');
+    grid on;
+    xlim([0,0.25]);
+    print(fig,'-dpng',sprintf('../tex/img/lin_%i.png', comp_rate(i)))
+    
+
+    fig = figure;
+    semilogx(druck, kennlinie);
+    hold on;
+    plot(druck,ones(size(druck))*I_THR,'g--');
+    plot(druck,ones(size(druck))*I_MCL,'r--');
+    text(0.1,I_THR+0.1,'I_{THR} = 0.25mA')
+    text(0.1,I_MCL+0.1,'I_{MCL} = 2.5mA')
+    title(sprintf('Logarithmisch c = %i', comp_rate(i)));
+    xlabel('Druck in pa');
+    ylabel('I in mA');
+    grid on;
+    xlim([0,1])
+    print(fig,'-dpng',sprintf('../tex/img/log_%i.png', comp_rate(i)))
+    
+end
