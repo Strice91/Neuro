@@ -19,14 +19,15 @@ env8 = abs(HT8);
 
 sig_dyn_comp8 = comp_dyn(env8,500);
 
-figure;
+fig = figure;
 for f = 1:8
     subplot(2,4,f);
     plot(t,sig_dyn_comp8(:,f));
-    title(sprintf('Kanal %i',f));
+    title(sprintf('Ch %i',f));
     xlabel('Zeit in s');
     ylabel('Stimulus in mA');
 end
+print(fig,'-dpng','../tex/img/dyn8.png')
 
 %% 16 Kanäle
 nChan = 16;
@@ -37,11 +38,12 @@ env16 = abs(HT16);
 
 sig_dyn_comp16 = comp_dyn(env16,500);
 
-figure;
+fig = figure;
 for f = 1:16
     subplot(4,4,f);
     plot(t,sig_dyn_comp16(:,f));
-    title(sprintf('Kanal %i',f));
+    title(sprintf('Ch %i',f));
     xlabel('Zeit in s');
     ylabel('Stimulus in mA');
 end
+print(fig,'-dpng','../tex/img/dyn16.png')

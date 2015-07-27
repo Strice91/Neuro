@@ -31,6 +31,7 @@ title('Original Signal');
 xlabel('Zeit in s');
 ylabel('Druck in pa');
 grid on;
+print(fig,'-dpng','../tex/img/sig_orig.png')
 
 fig = figure;
 % Ploten des Frequenzgang in KHz und dB
@@ -39,11 +40,14 @@ ylabel('Frequenzspektrum in pa') % left y-axis
 xlabel('Frequenz in Hz');
 xlim([1,1e4]);
 grid on
+print(fig,'-dpng','../tex/img/freq_orig.png')
 
-figure;
+fig = figure;
 [y] = logfsgram(x, n_out, fs, N_Fenster, Ueberlapp, loFreq, 1000);
 title('Spektrum Original');
 caxis([-30 30]);
+print(fig,'-dpng','../tex/img/spec_orig.png')
+
 
 
 %% 8 Kanäle
@@ -55,19 +59,21 @@ env8 = lp_filter(abs(HT8),30,fs);
 
 sum_spek8 = mean(env8);
 
-figure;
+fig = figure;
 bar(sum_spek8);
 title('Summenspektrum')
 ylabel('Durck in pa');
 xlabel('Kanal Nr.');
+print(fig,'-dpng','../tex/img/sum_ch8.png')
 
-figure;
+fig = figure;
 imagesc(env8(:,8:-1:1)');
 title('Envelope');
 ylabel('Kanal Nr.');
 xlabel('Zeit in s');
 set(gca, 'XTick', 1:fs:length(x), 'XTickLabel', 0:1:t(end));
 set(gca, 'YTick', 1:1:8, 'YTickLabel', 8:-1:1);
+print(fig,'-dpng','../tex/img/spec_env8.png')
 
 %% 16 Kanäle
 nChan = 16;
@@ -78,16 +84,18 @@ env16 = lp_filter(abs(HT16),30,fs);
 
 sum_spek16 = mean(env16);
 
-figure;
+fig = figure;
 bar(sum_spek16);
 title('Summenspektrum')
 ylabel('Durck in pa');
 xlabel('Kanal Nr.');
+print(fig,'-dpng','../tex/img/sum_ch16.png')
 
-figure;
+fig = figure;
 imagesc(env16(:,16:-1:1)');
 title('Envelope');
 ylabel('Kanal Nr.');
 xlabel('Zeit in s');
 set(gca, 'XTick', 1:fs:length(x), 'XTickLabel', 0:1:t(end));
 set(gca, 'YTick', 1:1:16, 'YTickLabel', 16:-1:1);
+print(fig,'-dpng','../tex/img/spec_env16.png')
