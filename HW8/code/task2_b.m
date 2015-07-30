@@ -20,19 +20,21 @@ env8 = abs(HT8);
 sig_dyn_comp8 = comp_dyn(env8,500);
 sum_dyn8 = mean(sig_dyn_comp8);
 
-figure;
+fig = figure;
 bar(sum_dyn8);
 title('Summenspektrum Dyn Comp')
 ylabel('Durck in pa');
 xlabel('Kanal Nr.');
+print(fig,'-dpng','../tex/img/sum_dyn8.png')
 
-figure;
+fig = figure;
 imagesc(sig_dyn_comp8(:,8:-1:1)');
 title('Envelope Dyn Comp');
 ylabel('Kanal Nr.');
 xlabel('Zeit in s');
 set(gca, 'XTick', 1:fs:length(x), 'XTickLabel', 0:1:t(end));
 set(gca, 'YTick', 1:1:8, 'YTickLabel', 8:-1:1);
+print(fig,'-dpng','../tex/img/spec_dyn8.png')
 
 
 %% 16 Kanäle
@@ -45,16 +47,18 @@ env16 = abs(HT16);
 sig_dyn_comp16 = comp_dyn(env16,500);
 sum_dyn16 = mean(sig_dyn_comp16);
 
-figure;
+fig = figure;
 bar(sum_dyn16);
 title('Summenspektrum Dyn Comp')
 ylabel('Durck in pa');
 xlabel('Kanal Nr.');
+print(fig,'-dpng','../tex/img/sum_dyn16.png')
 
-figure;
+fig = figure;
 imagesc(sig_dyn_comp16(:,16:-1:1)');
 title('Envelope Dyn Comp');
 ylabel('Kanal Nr.');
 xlabel('Zeit in s');
 set(gca, 'XTick', 1:fs:length(x), 'XTickLabel', 0:1:t(end));
 set(gca, 'YTick', 1:1:16, 'YTickLabel', 16:-1:1);
+print(fig,'-dpng','../tex/img/spec_dyn16.png')
